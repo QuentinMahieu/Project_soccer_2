@@ -113,7 +113,7 @@ function makeResponsive() {
         }); 
         return circlesGroup;
     }
-    d3.csv('Teams_Players/Team_player_data/project2_data/epl.csv').then((data,error)=>{
+    d3.csv('data/team_player/cleaned_final/epl.csv').then((data,error)=>{
         if (error) throw error;
         console.log(data)
         //Format the data
