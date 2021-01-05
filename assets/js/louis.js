@@ -115,7 +115,6 @@ function makeResponsive() {
     }
     d3.csv('data/team_player/cleaned_final/epl.csv').then((data,error)=>{
         if (error) throw error;
-        console.log(data)
         //Format the data
         data.forEach((d)=>{
             d.Ranking = +d.Ranking;

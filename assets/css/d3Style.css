@@ -1,3 +1,6 @@
+text{
+  color: white;
+}
 .aText {
   font-family: sans-serif;
   font-size: 16px;
@@ -6,20 +9,20 @@
 
 .active {
   font-weight: bold;
-  fill: #000;
+  fill: white;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
 }
 
 .inactive {
   font-weight: lighter;
-  fill: #c9c9c9;
+  fill:rgb(255,255,255,0.5) ;
   transition: fill 0.3s ease-out;
   text-anchor: middle;
 }
 
 .inactive:hover {
-  fill: #000;
+  fill: white;
   cursor: pointer;
 }
 
@@ -42,16 +45,19 @@
 
 .d3-tip {
   padding: 6px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   line-height: 1.5em;
   color: #fff;
   text-align: center;
   text-transform: capitalize;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(221, 221, 221, 0.2);
   border-radius: 4px;
 }
-
+.d3-tip hr{
+  border-top: 1px dotted white;
+  margin:5px 0;
+}
 /* Mobile Rules */
 @media screen and (max-width: 530px) {
   .stateText {
@@ -61,10 +67,24 @@
   .aText {
     font-size: 14px;
   }
+  #page{
+    padding-left: 1%;
+    margin-right: 2%;
+  }
+  #main{
+    padding-left: 0%;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .aText {
     font-size: 13px;
+  }
+  #main{
+    padding-left: 0%;
+  }
+  #page{
+    padding-left: 1%;
+    padding-right: 1%;
   }
 }
