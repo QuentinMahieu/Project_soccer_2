@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Events</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-md-6">
+        <select id="league">
+          <option value="England">England</option>
+          <option value="Spain">Spain</option>
+          <option value="Italy">Italy</option>
+        </select>
+
+        <div id="plot"></div>
+      </div>
+      <div class="col-md-6">
+        <br />
+        <br />
+        <h3>Financial analysis</h3>
+        <p>
+          Anecdotally, we know that finances have become increasingly important
+          in the world of professional football. In this section, we dig into
+          this a little more. Immediately by examining this graph on the left
+          you can see the truth of this.
+        </p>
+        <div id="transfer_analysis"></div>
+      </div>
+    </div>
+    <div class="row">
+      <select id="year" padding-left="12px">
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+      </select>
+      <select id="measure">
+        <option value="Wages">Player Wages</option>
+        <option value="Transfers">Transfer Spend (3 yr MA)</option>
+      </select>
+      <br />
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="average"></div>
+        <div id="table"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="louis.js"></script>
+  </body>
+</html>
