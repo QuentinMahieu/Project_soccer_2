@@ -1,181 +1,565 @@
 ,year,Teams,Transfer Spend (Euros),MA
-0,2011,Athletic Bilbao,6.75,
-1,2012,Athletic Bilbao,2.25,
-2,2013,Athletic Bilbao,13.86,7.62
-3,2014,Athletic Bilbao,0.9,5.67
-4,2015,Athletic Bilbao,7.2,7.32
-5,2016,Athletic Bilbao,0.0,2.7
-6,2017,Athletic Bilbao,28.8,12.0
-7,2018,Athletic Bilbao,29.61,19.47
-8,2019,Athletic Bilbao,0.0,19.47
-9,2011,Atlético Madrid,76.68000000000002,
-10,2012,Atlético Madrid,4.05,
-11,2013,Atlético Madrid,32.4,37.71
-12,2014,Atlético Madrid,128.65500000000003,55.04
-13,2015,Atlético Madrid,129.25000000000003,96.77
-14,2016,Atlético Madrid,71.1,109.67
-15,2017,Atlético Madrid,91.8,97.38
-16,2018,Atlético Madrid,144.45000000000002,102.45
-17,2019,Atlético Madrid,219.15,151.8
-18,2011,CA Osasuna,2.34,
-19,2012,CA Osasuna,0.54,
-20,2013,CA Osasuna,2.79,
-21,2016,CA Osasuna,1.98,
-22,2019,CA Osasuna,12.785,
-23,2016,CD Leganés,4.905,
-24,2017,CD Leganés,5.49,
-25,2018,CD Leganés,16.83,9.07
-26,2019,CD Leganés,14.76,12.36
-27,2012,Celta de Vigo,4.635000000000001,
-28,2013,Celta de Vigo,4.5,
-29,2014,Celta de Vigo,3.42,4.19
-30,2015,Celta de Vigo,14.670000000000002,7.53
-31,2016,Celta de Vigo,7.5600000000000005,8.55
-32,2017,Celta de Vigo,23.849999999999998,15.36
-33,2018,Celta de Vigo,26.549999999999997,19.32
-34,2019,Celta de Vigo,22.139999999999997,24.18
-35,2014,Córdoba CF,0.675,
-36,2016,Deportivo Alavés,5.695000000000001,
-37,2017,Deportivo Alavés,11.100000000000001,
-38,2018,Deportivo Alavés,9.018,8.6
-39,2019,Deportivo Alavés,9.7,9.94
-40,2012,Deportivo de La Coruña,0.675,
-41,2014,Deportivo de La Coruña,1.26,
-42,2015,Deportivo de La Coruña,7.199999999999999,
-43,2016,Deportivo de La Coruña,6.3,
-44,2017,Deportivo de La Coruña,8.55,
-45,2013,Elche CF,0.5850000000000001,
-46,2014,Elche CF,1.211,
-47,2011,FC Barcelona,54.0,
-48,2012,FC Barcelona,29.700000000000003,
-49,2013,FC Barcelona,91.08,58.26
-50,2014,FC Barcelona,150.05,90.28
-51,2015,FC Barcelona,45.900000000000006,95.68
-52,2016,FC Barcelona,112.28,102.74
-53,2017,FC Barcelona,348.75,168.98
-54,2018,FC Barcelona,116.19000000000003,192.41
-55,2019,FC Barcelona,245.7,236.88
-56,2011,Getafe CF,2.97,
-57,2012,Getafe CF,5.13,
-58,2013,Getafe CF,9.0,
-59,2014,Getafe CF,0.0,
-60,2015,Getafe CF,0.243,
-61,2017,Getafe CF,11.615000000000002,
-62,2018,Getafe CF,24.53,
-63,2019,Getafe CF,19.35,
-64,2017,Girona FC,7.88,
-65,2018,Girona FC,9.18,
-66,2011,Granada CF,10.971,
-67,2012,Granada CF,11.763000000000002,
-68,2013,Granada CF,5.380000000000001,
-69,2014,Granada CF,7.234,
-70,2015,Granada CF,3.465,
-71,2016,Granada CF,10.415000000000001,
-72,2019,Granada CF,7.875,
-73,2011,Levante UD,1.395,
-74,2012,Levante UD,0.585,
-75,2013,Levante UD,0.27,
-76,2014,Levante UD,0.72,
-77,2015,Levante UD,5.895,
-78,2017,Levante UD,8.19,
-79,2018,Levante UD,23.400000000000002,
-80,2019,Levante UD,11.34,
-81,2011,Málaga CF,53.33,
-82,2012,Málaga CF,0.0,
-83,2013,Málaga CF,4.712,19.35
-84,2014,Málaga CF,1.35,2.02
-85,2015,Málaga CF,7.785,4.62
-86,2016,Málaga CF,11.282,6.81
-87,2017,Málaga CF,9.45,9.51
-88,2011,RCD Espanyol Barcelona,5.8500000000000005,
-89,2012,RCD Espanyol Barcelona,0.585,
-90,2013,RCD Espanyol Barcelona,0.675,2.37
-91,2014,RCD Espanyol Barcelona,1.98,1.08
-92,2015,RCD Espanyol Barcelona,2.84,1.83
-93,2016,RCD Espanyol Barcelona,16.560000000000002,7.13
-94,2017,RCD Espanyol Barcelona,15.344999999999999,11.58
-95,2018,RCD Espanyol Barcelona,20.34,17.41
-96,2019,RCD Espanyol Barcelona,55.35,30.34
-97,2011,RCD Mallorca,3.24,
-98,2012,RCD Mallorca,3.33,
-99,2019,RCD Mallorca,6.750000000000001,
-100,2011,Racing Santander,0.315,
-101,2011,Rayo Vallecano,0.306,
-102,2012,Rayo Vallecano,0.0,
-103,2013,Rayo Vallecano,0.0,
-104,2014,Rayo Vallecano,0.45,
-105,2015,Rayo Vallecano,0.36,
-106,2018,Rayo Vallecano,11.07,
-107,2011,Real Betis Balompié,3.0970000000000004,
-108,2012,Real Betis Balompié,2.3850000000000002,
-109,2013,Real Betis Balompié,6.705,
-110,2015,Real Betis Balompié,7.970000000000001,
-111,2016,Real Betis Balompié,18.81,
-112,2017,Real Betis Balompié,34.65,
-113,2018,Real Betis Balompié,34.65,
-114,2019,Real Betis Balompié,90.23,
-115,2011,Real Madrid,49.5,
-116,2012,Real Madrid,34.65,
-117,2013,Real Madrid,157.95,80.7
-118,2014,Real Madrid,113.4,102.0
-119,2015,Real Madrid,76.50000000000001,115.95
-120,2016,Real Madrid,27.0,72.3
-121,2017,Real Madrid,36.45,46.65
-122,2018,Real Madrid,146.48000000000002,69.98
-123,2019,Real Madrid,317.25,166.73
-124,2011,Real Sociedad,1.35,
-125,2012,Real Sociedad,12.6,
-126,2013,Real Sociedad,5.85,6.6
-127,2014,Real Sociedad,10.8,9.75
-128,2015,Real Sociedad,22.59,13.08
-129,2016,Real Sociedad,16.2,16.53
-130,2017,Real Sociedad,19.35,19.38
-131,2018,Real Sociedad,10.8,15.45
-132,2019,Real Sociedad,19.125,16.42
-133,2012,Real Valladolid CF,0.0,
-134,2013,Real Valladolid CF,0.9450000000000001,
-135,2018,Real Valladolid CF,9.09,
-136,2019,Real Valladolid CF,1.26,
-137,2011,Real Zaragoza,10.35,
-138,2012,Real Zaragoza,1.6199999999999999,
-139,2014,SD Eibar,0.14600000000000002,
-140,2015,SD Eibar,3.33,
-141,2016,SD Eibar,7.739999999999999,3.74
-142,2017,SD Eibar,6.705000000000001,5.92
-143,2018,SD Eibar,7.2,7.21
-144,2019,SD Eibar,15.39,9.76
-145,2018,SD Huesca,7.200000000000001,
-146,2011,Sevilla FC,17.1,
-147,2012,Sevilla FC,12.6,
-148,2013,Sevilla FC,33.394999999999996,21.03
-149,2014,Sevilla FC,18.855000000000004,21.62
-150,2015,Sevilla FC,39.599999999999994,30.62
-151,2016,Sevilla FC,73.52999999999999,44.0
-152,2017,Sevilla FC,70.24499999999999,61.12
-153,2018,Sevilla FC,71.145,71.64
-154,2019,Sevilla FC,159.98,100.46
-155,2011,Sporting Gijón,1.35,
-156,2015,Sporting Gijón,0.0,
-157,2016,Sporting Gijón,0.8999999999999999,
-158,2013,UD Almería,0.0,
-159,2014,UD Almería,0.0,
-160,2015,UD Las Palmas,5.76,
-161,2016,UD Las Palmas,2.6100000000000003,
-162,2017,UD Las Palmas,0.315,2.9
-163,2011,Valencia CF,30.6,
-164,2012,Valencia CF,20.88,
-165,2013,Valencia CF,20.228000000000005,23.9
-166,2014,Valencia CF,47.97,29.69
-167,2015,Valencia CF,129.51000000000002,65.9
-168,2016,Valencia CF,32.4,69.96
-169,2017,Valencia CF,49.50000000000001,70.47
-170,2018,Valencia CF,116.28000000000002,66.06
-171,2019,Valencia CF,67.49999999999999,77.76
-172,2011,Villarreal CF,28.17,
-173,2013,Villarreal CF,14.4,
-174,2014,Villarreal CF,16.83,
-175,2015,Villarreal CF,42.48,
-176,2016,Villarreal CF,50.36,
-177,2017,Villarreal CF,41.49,
-178,2018,Villarreal CF,83.60999999999999,
-179,2019,Villarreal CF,40.31999999999999,
+0,1992,Albacete Balompié,0.0,
+1,1993,Albacete Balompié,0.0,
+2,1994,Albacete Balompié,0.0,
+3,1995,Albacete Balompié,0.63,
+4,2003,Albacete Balompié,0.27,
+5,2004,Albacete Balompié,0.0,
+6,1992,Athletic Bilbao,0.0,
+7,1993,Athletic Bilbao,0.0,
+8,1994,Athletic Bilbao,1.17,0.39
+9,1995,Athletic Bilbao,2.7,1.29
+10,1996,Athletic Bilbao,0.0,1.29
+11,1997,Athletic Bilbao,10.8,4.5
+12,1998,Athletic Bilbao,0.0,3.6
+13,1999,Athletic Bilbao,0.0,3.6
+14,2000,Athletic Bilbao,0.0,0.0
+15,2001,Athletic Bilbao,0.0,0.0
+16,2002,Athletic Bilbao,0.0,0.0
+17,2003,Athletic Bilbao,0.0,0.0
+18,2004,Athletic Bilbao,0.0,0.0
+19,2005,Athletic Bilbao,2.7,0.9
+20,2006,Athletic Bilbao,7.2,3.3
+21,2007,Athletic Bilbao,11.97,7.29
+22,2008,Athletic Bilbao,0.27,6.48
+23,2009,Athletic Bilbao,2.115,4.78
+24,2010,Athletic Bilbao,2.448,1.61
+25,2011,Athletic Bilbao,6.75,3.77
+26,2012,Athletic Bilbao,2.25,3.82
+27,2013,Athletic Bilbao,13.86,7.62
+28,2014,Athletic Bilbao,0.9,5.67
+29,2015,Athletic Bilbao,7.2,7.32
+30,2016,Athletic Bilbao,0.0,2.7
+31,2017,Athletic Bilbao,28.8,12.0
+32,2018,Athletic Bilbao,29.61,19.47
+33,2019,Athletic Bilbao,0.0,19.47
+34,1992,Atlético Madrid,0.0,
+35,1993,Atlético Madrid,0.0,
+36,1994,Atlético Madrid,4.279999999999999,
+37,1995,Atlético Madrid,1.6380000000000001,
+38,1996,Atlético Madrid,3.285,
+39,1997,Atlético Madrid,31.369999999999997,
+40,1998,Atlético Madrid,18.72,
+41,1999,Atlético Madrid,19.35,
+42,2002,Atlético Madrid,23.759999999999994,
+43,2003,Atlético Madrid,7.2,
+44,2004,Atlético Madrid,11.970000000000002,
+45,2005,Atlético Madrid,23.85,
+46,2006,Atlético Madrid,51.41300000000001,
+47,2007,Atlético Madrid,72.44999999999999,
+48,2008,Atlético Madrid,23.85,
+49,2009,Atlético Madrid,15.530000000000001,
+50,2010,Atlético Madrid,30.65,
+51,2011,Atlético Madrid,76.68000000000002,
+52,2012,Atlético Madrid,4.05,
+53,2013,Atlético Madrid,32.4,
+54,2014,Atlético Madrid,128.65500000000003,
+55,2015,Atlético Madrid,129.25000000000003,
+56,2016,Atlético Madrid,71.1,
+57,2017,Atlético Madrid,91.8,
+58,2018,Atlético Madrid,144.45000000000002,
+59,2019,Atlético Madrid,219.15,
+60,1992,Burgos CF,0.327,
+61,1992,CA Osasuna,0.0,
+62,1993,CA Osasuna,0.0,
+63,2000,CA Osasuna,0.0,
+64,2001,CA Osasuna,1.62,
+65,2002,CA Osasuna,0.0,
+66,2003,CA Osasuna,1.62,
+67,2004,CA Osasuna,0.0,
+68,2005,CA Osasuna,0.9,
+69,2006,CA Osasuna,0.36,
+70,2007,CA Osasuna,9.05,
+71,2008,CA Osasuna,4.545,
+72,2009,CA Osasuna,1.08,
+73,2010,CA Osasuna,2.508,
+74,2011,CA Osasuna,2.34,
+75,2012,CA Osasuna,0.54,
+76,2013,CA Osasuna,2.79,
+77,2016,CA Osasuna,1.98,
+78,2019,CA Osasuna,12.785,
+79,2016,CD Leganés,4.905,
+80,2017,CD Leganés,5.49,
+81,2018,CD Leganés,16.83,9.07
+82,2019,CD Leganés,14.76,12.36
+83,1992,CD Logroñés (liq.),0.0,
+84,1993,CD Logroñés (liq.),0.0,
+85,1994,CD Logroñés (liq.),0.0,
+86,1996,CD Logroñés (liq.),0.0,
+87,1999,CD Numancia,0.0,
+88,2000,CD Numancia,0.0,
+89,2004,CD Numancia,0.648,
+90,2008,CD Numancia,0.27,
+91,1992,CD Tenerife,0.0,
+92,1993,CD Tenerife,0.0,
+93,1994,CD Tenerife,0.0,
+94,1995,CD Tenerife,0.0,
+95,1996,CD Tenerife,2.7,
+96,1997,CD Tenerife,12.6,
+97,1998,CD Tenerife,7.56,
+98,2001,CD Tenerife,0.0,
+99,2009,CD Tenerife,0.54,
+100,1996,CF Extremadura (diss.),0.784,
+101,1998,CF Extremadura (diss.),0.0,
+102,1995,CP Mérida (diss.),0.0,
+103,1997,CP Mérida (diss.),4.755,
+104,1992,Celta de Vigo,0.308,
+105,1993,Celta de Vigo,0.0,
+106,1994,Celta de Vigo,0.162,
+107,1995,Celta de Vigo,0.0,
+108,1996,Celta de Vigo,2.7,
+109,1997,Celta de Vigo,0.72,
+110,1998,Celta de Vigo,1.8,
+111,1999,Celta de Vigo,13.964,
+112,2000,Celta de Vigo,15.05,
+113,2001,Celta de Vigo,7.199999999999999,
+114,2002,Celta de Vigo,0.0,
+115,2003,Celta de Vigo,2.25,
+116,2005,Celta de Vigo,0.9,
+117,2006,Celta de Vigo,4.275,
+118,2012,Celta de Vigo,4.635000000000001,
+119,2013,Celta de Vigo,4.5,
+120,2014,Celta de Vigo,3.42,
+121,2015,Celta de Vigo,14.670000000000002,
+122,2016,Celta de Vigo,7.5600000000000005,
+123,2017,Celta de Vigo,23.849999999999998,
+124,2018,Celta de Vigo,26.549999999999997,
+125,2019,Celta de Vigo,22.139999999999997,
+126,1992,Cádiz CF,0.0,
+127,2005,Cádiz CF,2.52,
+128,2014,Córdoba CF,0.675,
+129,1998,Deportivo Alavés,1.035,
+130,1999,Deportivo Alavés,1.8450000000000002,
+131,2000,Deportivo Alavés,0.0,
+132,2001,Deportivo Alavés,0.675,
+133,2002,Deportivo Alavés,3.96,
+134,2005,Deportivo Alavés,1.26,
+135,2016,Deportivo Alavés,5.695000000000001,
+136,2017,Deportivo Alavés,11.100000000000001,
+137,2018,Deportivo Alavés,9.018,
+138,2019,Deportivo Alavés,9.7,
+139,1992,Deportivo de La Coruña,2.07,
+140,1993,Deportivo de La Coruña,0.0,
+141,1994,Deportivo de La Coruña,2.16,
+142,1995,Deportivo de La Coruña,4.3100000000000005,
+143,1996,Deportivo de La Coruña,28.080000000000005,
+144,1997,Deportivo de La Coruña,17.64,
+145,1998,Deportivo de La Coruña,12.69,
+146,1999,Deportivo de La Coruña,23.490000000000002,
+147,2000,Deportivo de La Coruña,51.620000000000005,
+148,2001,Deportivo de La Coruña,26.009999999999998,
+149,2002,Deportivo de La Coruña,35.1,
+150,2003,Deportivo de La Coruña,2.25,
+151,2004,Deportivo de La Coruña,4.5,
+152,2005,Deportivo de La Coruña,4.5,
+153,2006,Deportivo de La Coruña,9.967,
+154,2007,Deportivo de La Coruña,7.154999999999999,
+155,2008,Deportivo de La Coruña,8.280000000000001,
+156,2009,Deportivo de La Coruña,1.8,
+157,2010,Deportivo de La Coruña,0.585,
+158,2012,Deportivo de La Coruña,0.675,
+159,2014,Deportivo de La Coruña,1.26,
+160,2015,Deportivo de La Coruña,7.199999999999999,
+161,2016,Deportivo de La Coruña,6.3,
+162,2017,Deportivo de La Coruña,8.55,
+163,2013,Elche CF,0.5850000000000001,
+164,2014,Elche CF,1.211,
+165,1992,FC Barcelona,1.8,
+166,1993,FC Barcelona,11.385000000000002,
+167,1994,FC Barcelona,10.98,8.06
+168,1995,FC Barcelona,15.120000000000001,12.5
+169,1996,FC Barcelona,35.55,20.55
+170,1997,FC Barcelona,53.28,34.65
+171,1998,FC Barcelona,43.92,44.25
+172,1999,FC Barcelona,19.8,39.0
+173,2000,FC Barcelona,87.38999999999999,50.37
+174,2001,FC Barcelona,86.39999999999999,64.53
+175,2002,FC Barcelona,10.35,61.38
+176,2003,FC Barcelona,39.480000000000004,45.41
+177,2004,FC Barcelona,70.64999999999999,40.16
+178,2005,FC Barcelona,0.0,36.71
+179,2006,FC Barcelona,27.9,32.85
+180,2007,FC Barcelona,61.650000000000006,29.85
+181,2008,FC Barcelona,86.4,58.65
+182,2009,FC Barcelona,102.14999999999999,83.4
+183,2010,FC Barcelona,65.25,84.6
+184,2011,FC Barcelona,54.0,73.8
+185,2012,FC Barcelona,29.700000000000003,49.65
+186,2013,FC Barcelona,91.08,58.26
+187,2014,FC Barcelona,150.05,90.28
+188,2015,FC Barcelona,45.900000000000006,95.68
+189,2016,FC Barcelona,112.28,102.74
+190,2017,FC Barcelona,348.75,168.98
+191,2018,FC Barcelona,116.19000000000003,192.41
+192,2019,FC Barcelona,245.7,236.88
+193,2004,Getafe CF,0.0,
+194,2005,Getafe CF,1.62,
+195,2006,Getafe CF,3.87,
+196,2007,Getafe CF,16.200000000000003,
+197,2008,Getafe CF,15.75,
+198,2009,Getafe CF,11.025000000000002,
+199,2010,Getafe CF,3.51,
+200,2011,Getafe CF,2.97,
+201,2012,Getafe CF,5.13,
+202,2013,Getafe CF,9.0,
+203,2014,Getafe CF,0.0,
+204,2015,Getafe CF,0.243,
+205,2017,Getafe CF,11.615000000000002,
+206,2018,Getafe CF,24.53,
+207,2019,Getafe CF,19.35,
+208,2006,Gimnàstic de Tarragona,1.08,
+209,2017,Girona FC,7.88,
+210,2018,Girona FC,9.18,
+211,2011,Granada CF,10.971,
+212,2012,Granada CF,11.763000000000002,
+213,2013,Granada CF,5.380000000000001,
+214,2014,Granada CF,7.234,
+215,2015,Granada CF,3.465,
+216,2016,Granada CF,10.415000000000001,
+217,2019,Granada CF,7.875,
+218,1996,Hércules CF,0.0,
+219,2010,Hércules CF,4.869,
+220,2004,Levante UD,3.06,
+221,2006,Levante UD,3.4650000000000003,
+222,2007,Levante UD,4.7700000000000005,
+223,2010,Levante UD,0.0,
+224,2011,Levante UD,1.395,
+225,2012,Levante UD,0.585,
+226,2013,Levante UD,0.27,
+227,2014,Levante UD,0.72,
+228,2015,Levante UD,5.895,
+229,2017,Levante UD,8.19,
+230,2018,Levante UD,23.400000000000002,
+231,2019,Levante UD,11.34,
+232,1999,Málaga CF,0.0,
+233,2000,Málaga CF,4.5,
+234,2001,Málaga CF,0.0,
+235,2002,Málaga CF,0.0,
+236,2003,Málaga CF,0.0,
+237,2004,Málaga CF,0.675,
+238,2005,Málaga CF,1.368,
+239,2008,Málaga CF,0.99,
+240,2009,Málaga CF,1.44,
+241,2010,Málaga CF,22.541,
+242,2011,Málaga CF,53.33,
+243,2012,Málaga CF,0.0,
+244,2013,Málaga CF,4.712,
+245,2014,Málaga CF,1.35,
+246,2015,Málaga CF,7.785,
+247,2016,Málaga CF,11.282,
+248,2017,Málaga CF,9.45,
+249,1992,RCD Espanyol Barcelona,0.0,
+250,1994,RCD Espanyol Barcelona,0.0,
+251,1995,RCD Espanyol Barcelona,0.0,
+252,1996,RCD Espanyol Barcelona,2.07,
+253,1997,RCD Espanyol Barcelona,4.77,
+254,1998,RCD Espanyol Barcelona,0.0,
+255,1999,RCD Espanyol Barcelona,2.52,
+256,2000,RCD Espanyol Barcelona,0.18,
+257,2001,RCD Espanyol Barcelona,0.0,
+258,2002,RCD Espanyol Barcelona,11.495000000000001,
+259,2003,RCD Espanyol Barcelona,1.35,
+260,2004,RCD Espanyol Barcelona,2.745,
+261,2005,RCD Espanyol Barcelona,13.702999999999998,
+262,2006,RCD Espanyol Barcelona,2.4530000000000003,
+263,2007,RCD Espanyol Barcelona,4.590000000000001,
+264,2008,RCD Espanyol Barcelona,12.870000000000001,
+265,2009,RCD Espanyol Barcelona,5.22,
+266,2010,RCD Espanyol Barcelona,10.125,
+267,2011,RCD Espanyol Barcelona,5.8500000000000005,
+268,2012,RCD Espanyol Barcelona,0.585,
+269,2013,RCD Espanyol Barcelona,0.675,
+270,2014,RCD Espanyol Barcelona,1.98,
+271,2015,RCD Espanyol Barcelona,2.84,
+272,2016,RCD Espanyol Barcelona,16.560000000000002,
+273,2017,RCD Espanyol Barcelona,15.344999999999999,
+274,2018,RCD Espanyol Barcelona,20.34,
+275,2019,RCD Espanyol Barcelona,55.35,
+276,1997,RCD Mallorca,0.9,
+277,1998,RCD Mallorca,2.16,
+278,1999,RCD Mallorca,11.34,
+279,2000,RCD Mallorca,0.0,
+280,2001,RCD Mallorca,4.34,
+281,2002,RCD Mallorca,0.18,
+282,2003,RCD Mallorca,5.85,
+283,2004,RCD Mallorca,2.61,
+284,2005,RCD Mallorca,8.1,
+285,2006,RCD Mallorca,11.700000000000001,
+286,2007,RCD Mallorca,6.75,
+287,2008,RCD Mallorca,9.207,
+288,2009,RCD Mallorca,0.36,
+289,2010,RCD Mallorca,0.0,
+290,2011,RCD Mallorca,3.24,
+291,2012,RCD Mallorca,3.33,
+292,2019,RCD Mallorca,6.750000000000001,
+293,1993,Racing Santander,1.08,
+294,1994,Racing Santander,0.0,
+295,1995,Racing Santander,0.0,
+296,1996,Racing Santander,2.7,
+297,1997,Racing Santander,0.0,
+298,1998,Racing Santander,3.3230000000000004,
+299,1999,Racing Santander,4.5,
+300,2000,Racing Santander,0.675,
+301,2002,Racing Santander,0.45,
+302,2003,Racing Santander,0.0,
+303,2004,Racing Santander,1.03,
+304,2005,Racing Santander,4.14,
+305,2006,Racing Santander,5.4,
+306,2007,Racing Santander,12.177,
+307,2008,Racing Santander,3.42,
+308,2009,Racing Santander,5.4,
+309,2010,Racing Santander,1.3190000000000002,
+310,2011,Racing Santander,0.315,
+311,1992,Rayo Vallecano,0.0,
+312,1993,Rayo Vallecano,0.0,
+313,1995,Rayo Vallecano,1.08,
+314,1996,Rayo Vallecano,0.901,
+315,1999,Rayo Vallecano,1.89,
+316,2000,Rayo Vallecano,1.8,
+317,2001,Rayo Vallecano,0.9,
+318,2002,Rayo Vallecano,0.0,
+319,2011,Rayo Vallecano,0.306,
+320,2012,Rayo Vallecano,0.0,
+321,2013,Rayo Vallecano,0.0,
+322,2014,Rayo Vallecano,0.45,
+323,2015,Rayo Vallecano,0.36,
+324,2018,Rayo Vallecano,11.07,
+325,1994,Real Betis Balompié,1.13,
+326,1995,Real Betis Balompié,0.0,
+327,1996,Real Betis Balompié,10.620000000000001,
+328,1997,Real Betis Balompié,1.62,
+329,1998,Real Betis Balompié,35.1,
+330,1999,Real Betis Balompié,3.42,
+331,2001,Real Betis Balompié,9.965,
+332,2002,Real Betis Balompié,0.0,
+333,2003,Real Betis Balompié,0.0,
+334,2004,Real Betis Balompié,8.55,
+335,2005,Real Betis Balompié,4.95,
+336,2006,Real Betis Balompié,22.264000000000003,
+337,2007,Real Betis Balompié,21.87,
+338,2008,Real Betis Balompié,30.78,
+339,2011,Real Betis Balompié,3.0970000000000004,
+340,2012,Real Betis Balompié,2.3850000000000002,
+341,2013,Real Betis Balompié,6.705,
+342,2015,Real Betis Balompié,7.970000000000001,
+343,2016,Real Betis Balompié,18.81,
+344,2017,Real Betis Balompié,34.65,
+345,2018,Real Betis Balompié,34.65,
+346,2019,Real Betis Balompié,90.23,
+347,1992,Real Madrid,3.15,
+348,1993,Real Madrid,3.87,
+349,1994,Real Madrid,12.600000000000001,6.54
+350,1995,Real Madrid,9.09,8.52
+351,1996,Real Madrid,50.61,24.1
+352,1997,Real Madrid,24.5,28.07
+353,1998,Real Madrid,8.100000000000001,27.74
+354,1999,Real Madrid,69.75,34.12
+355,2000,Real Madrid,107.33,61.73
+356,2001,Real Madrid,69.75,82.28
+357,2002,Real Madrid,40.5,72.53
+358,2003,Real Madrid,33.75,48.0
+359,2004,Real Madrid,52.83,42.36
+360,2005,Real Madrid,80.55,55.71
+361,2006,Real Madrid,92.69999999999999,75.36
+362,2007,Real Madrid,106.19999999999999,93.15
+363,2008,Real Madrid,73.97999999999999,90.96
+364,2009,Real Madrid,232.64999999999998,137.61
+365,2010,Real Madrid,83.7,130.11
+366,2011,Real Madrid,49.5,121.95
+367,2012,Real Madrid,34.65,55.95
+368,2013,Real Madrid,157.95,80.7
+369,2014,Real Madrid,113.4,102.0
+370,2015,Real Madrid,76.50000000000001,115.95
+371,2016,Real Madrid,27.0,72.3
+372,2017,Real Madrid,36.45,46.65
+373,2018,Real Madrid,146.48000000000002,69.98
+374,2019,Real Madrid,317.25,166.73
+375,2003,Real Murcia CF,2.43,
+376,2007,Real Murcia CF,8.757000000000001,
+377,1992,Real Oviedo,0.0,
+378,1993,Real Oviedo,0.0,
+379,1994,Real Oviedo,0.0,0.0
+380,1995,Real Oviedo,0.0,0.0
+381,1996,Real Oviedo,0.27,0.09
+382,1997,Real Oviedo,1.35,0.54
+383,1998,Real Oviedo,0.0,0.54
+384,1999,Real Oviedo,0.0,0.45
+385,2000,Real Oviedo,0.0,0.0
+386,1992,Real Sociedad,0.0,
+387,1993,Real Sociedad,0.0,
+388,1994,Real Sociedad,0.9,
+389,1995,Real Sociedad,0.0,
+390,1996,Real Sociedad,7.2,
+391,1997,Real Sociedad,0.0,
+392,1998,Real Sociedad,0.0,
+393,1999,Real Sociedad,1.35,
+394,2000,Real Sociedad,9.360000000000001,
+395,2001,Real Sociedad,22.939999999999998,
+396,2002,Real Sociedad,0.0,
+397,2003,Real Sociedad,4.5,
+398,2004,Real Sociedad,6.075,
+399,2005,Real Sociedad,3.15,
+400,2006,Real Sociedad,7.6049999999999995,
+401,2010,Real Sociedad,3.7800000000000002,
+402,2011,Real Sociedad,1.35,
+403,2012,Real Sociedad,12.6,
+404,2013,Real Sociedad,5.85,
+405,2014,Real Sociedad,10.8,
+406,2015,Real Sociedad,22.59,
+407,2016,Real Sociedad,16.2,
+408,2017,Real Sociedad,19.35,
+409,2018,Real Sociedad,10.8,
+410,2019,Real Sociedad,19.125,
+411,1993,Real Valladolid CF,0.0,
+412,1994,Real Valladolid CF,0.0,
+413,1995,Real Valladolid CF,0.0,
+414,1996,Real Valladolid CF,0.0,
+415,1997,Real Valladolid CF,1.8,
+416,1998,Real Valladolid CF,2.97,
+417,1999,Real Valladolid CF,0.0,
+418,2000,Real Valladolid CF,0.0,
+419,2001,Real Valladolid CF,0.0,
+420,2002,Real Valladolid CF,0.0,
+421,2003,Real Valladolid CF,0.0,
+422,2007,Real Valladolid CF,1.71,
+423,2008,Real Valladolid CF,1.125,
+424,2009,Real Valladolid CF,6.013,
+425,2012,Real Valladolid CF,0.0,
+426,2013,Real Valladolid CF,0.9450000000000001,
+427,2018,Real Valladolid CF,9.09,
+428,2019,Real Valladolid CF,1.26,
+429,1992,Real Zaragoza,0.0,
+430,1993,Real Zaragoza,1.26,
+431,1994,Real Zaragoza,1.35,
+432,1995,Real Zaragoza,0.0,
+433,1996,Real Zaragoza,3.69,
+434,1997,Real Zaragoza,0.0,
+435,1998,Real Zaragoza,0.0,
+436,1999,Real Zaragoza,0.0,
+437,2000,Real Zaragoza,1.6740000000000002,
+438,2001,Real Zaragoza,16.43,
+439,2003,Real Zaragoza,3.15,
+440,2004,Real Zaragoza,0.72,
+441,2005,Real Zaragoza,6.300000000000001,
+442,2006,Real Zaragoza,15.3,
+443,2007,Real Zaragoza,12.87,
+444,2009,Real Zaragoza,12.959999999999999,
+445,2010,Real Zaragoza,3.915,
+446,2011,Real Zaragoza,10.35,
+447,2012,Real Zaragoza,1.6199999999999999,
+448,2002,Recreativo Huelva,0.045,
+449,2006,Recreativo Huelva,0.473,
+450,2007,Recreativo Huelva,8.676,
+451,2008,Recreativo Huelva,4.496,
+452,1994,SD Compostela,0.0,
+453,1995,SD Compostela,0.225,
+454,1996,SD Compostela,0.0,0.08
+455,1997,SD Compostela,0.0,0.08
+456,2014,SD Eibar,0.14600000000000002,
+457,2015,SD Eibar,3.33,
+458,2016,SD Eibar,7.739999999999999,3.74
+459,2017,SD Eibar,6.705000000000001,5.92
+460,2018,SD Eibar,7.2,7.21
+461,2019,SD Eibar,15.39,9.76
+462,2018,SD Huesca,7.200000000000001,
+463,1992,Sevilla FC,0.0,
+464,1993,Sevilla FC,0.9,
+465,1994,Sevilla FC,0.0,
+466,1995,Sevilla FC,0.0,
+467,1996,Sevilla FC,4.695,
+468,1999,Sevilla FC,0.0,
+469,2001,Sevilla FC,0.0,
+470,2002,Sevilla FC,1.3050000000000002,
+471,2003,Sevilla FC,3.15,
+472,2004,Sevilla FC,6.773000000000001,
+473,2005,Sevilla FC,20.700000000000003,
+474,2006,Sevilla FC,16.83,
+475,2007,Sevilla FC,26.1,
+476,2008,Sevilla FC,33.93000000000001,
+477,2009,Sevilla FC,24.75,
+478,2010,Sevilla FC,15.119999999999997,
+479,2011,Sevilla FC,17.1,
+480,2012,Sevilla FC,12.6,
+481,2013,Sevilla FC,33.394999999999996,
+482,2014,Sevilla FC,18.855000000000004,
+483,2015,Sevilla FC,39.599999999999994,
+484,2016,Sevilla FC,73.52999999999999,
+485,2017,Sevilla FC,70.24499999999999,
+486,2018,Sevilla FC,71.145,
+487,2019,Sevilla FC,159.98,
+488,1992,Sporting Gijón,0.0,
+489,1993,Sporting Gijón,0.0,
+490,1994,Sporting Gijón,0.0,
+491,1995,Sporting Gijón,0.45,
+492,1996,Sporting Gijón,1.53,
+493,1997,Sporting Gijón,1.8,
+494,2008,Sporting Gijón,0.09,
+495,2009,Sporting Gijón,1.26,
+496,2010,Sporting Gijón,0.72,
+497,2011,Sporting Gijón,1.35,
+498,2015,Sporting Gijón,0.0,
+499,2016,Sporting Gijón,0.8999999999999999,
+500,2007,UD Almería,8.775,
+501,2008,UD Almería,13.049999999999999,
+502,2009,UD Almería,4.68,
+503,2010,UD Almería,2.88,
+504,2013,UD Almería,0.0,
+505,2014,UD Almería,0.0,
+506,2000,UD Las Palmas,5.130000000000001,
+507,2001,UD Las Palmas,0.0,
+508,2015,UD Las Palmas,5.76,
+509,2016,UD Las Palmas,2.6100000000000003,
+510,2017,UD Las Palmas,0.315,
+511,1995,UD Salamanca (liq.),0.0,
+512,1997,UD Salamanca (liq.),0.81,
+513,1998,UD Salamanca (liq.),2.03,
+514,1993,UE Lleida (liq.),0.0,
+515,1992,Valencia CF,0.0,
+516,1993,Valencia CF,9.45,
+517,1994,Valencia CF,2.7,4.05
+518,1995,Valencia CF,1.8,4.65
+519,1996,Valencia CF,2.7,2.4
+520,1997,Valencia CF,17.69,7.4
+521,1998,Valencia CF,5.85,8.75
+522,1999,Valencia CF,15.39,12.98
+523,2000,Valencia CF,45.95,22.4
+524,2001,Valencia CF,16.69,26.01
+525,2002,Valencia CF,0.0,20.88
+526,2003,Valencia CF,0.9,5.86
+527,2004,Valencia CF,36.0,12.3
+528,2005,Valencia CF,20.555999999999997,19.15
+529,2006,Valencia CF,44.82,33.79
+530,2007,Valencia CF,64.93499999999999,43.44
+531,2008,Valencia CF,5.94,38.56
+532,2009,Valencia CF,4.5,25.12
+533,2010,Valencia CF,25.07,11.84
+534,2011,Valencia CF,30.6,20.06
+535,2012,Valencia CF,20.88,25.52
+536,2013,Valencia CF,20.228000000000005,23.9
+537,2014,Valencia CF,47.97,29.69
+538,2015,Valencia CF,129.51000000000002,65.9
+539,2016,Valencia CF,32.4,69.96
+540,2017,Valencia CF,49.50000000000001,70.47
+541,2018,Valencia CF,116.28000000000002,66.06
+542,2019,Valencia CF,67.49999999999999,77.76
+543,1998,Villarreal CF,4.05,
+544,2000,Villarreal CF,15.12,
+545,2001,Villarreal CF,5.463,
+546,2002,Villarreal CF,1.8900000000000001,
+547,2003,Villarreal CF,10.844999999999999,
+548,2004,Villarreal CF,10.709999999999999,
+549,2005,Villarreal CF,17.910000000000004,
+550,2006,Villarreal CF,24.389999999999997,
+551,2007,Villarreal CF,35.99999999999999,
+552,2008,Villarreal CF,22.86,
+553,2009,Villarreal CF,20.61,
+554,2010,Villarreal CF,3.83,
+555,2011,Villarreal CF,28.17,
+556,2013,Villarreal CF,14.4,
+557,2014,Villarreal CF,16.83,
+558,2015,Villarreal CF,42.48,
+559,2016,Villarreal CF,50.36,
+560,2017,Villarreal CF,41.49,
+561,2018,Villarreal CF,83.60999999999999,
+562,2019,Villarreal CF,40.31999999999999,
+563,2009,Xerez CD,0.45,
