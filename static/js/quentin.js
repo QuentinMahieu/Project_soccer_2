@@ -1,9 +1,9 @@
 function makeResponsive() {
-    // remove it and replace it with a resized version of the chart
+    //remove it and replace it with a resized version of the chart
     var svgArea = d3.select("body").selectAll("svg");
     // clear svg if not empty
     svgArea.remove();
-  
+
     var svgWidth = (window.innerWidth)*.9;
     var svgHeight = (window.innerHeight)*.7;
     var margin = {
@@ -20,7 +20,7 @@ function makeResponsive() {
             .append('svg')
             .attr('width',svgWidth)
             .attr('height',svgHeight)     
-                         
+                     
     //Initial Params
     var chosenXAxis = "Ranking";
     var chosenYAxis = "Goals+";
@@ -163,7 +163,342 @@ function makeResponsive() {
         }); 
         return circlesGroup;
     }
-
+    function renderText(chosenXAxis,chosenYAxis,points,ranking,player_rating,goals_for,possession,passes,movingAverage,shots){
+        if (chosenXAxis === "Points") {
+            points
+                .classed("active", true)
+                .classed("inactive", false);
+            ranking
+                .classed("active", false)
+                .classed("inactive", true);
+            if (chosenYAxis === "avg player rating"){
+                player_rating
+                    .classed("active", true)
+                    .classed("inactive", false);
+                goals_for
+                    .classed("active", false)
+                    .classed("inactive", true);
+                possession
+                    .classed("active", false)
+                    .classed("inactive", true);
+                passes
+                    .classed("active", false)
+                    .classed("inactive", true);
+                movingAverage
+                    .classed("active", false)
+                    .classed("inactive", true);
+                shots
+                    .classed("active", false)
+                    .classed("inactive", true);
+                d3.select("#analysis")
+                .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5>
+                    <br>
+                    <p style='color:white;'> We can observe a positive correlation
+                    of <strong id="corr">0.68</strong>.<br> This implies 
+                    that the better the player rating, the more the team has points.
+                    <br> The correlation is here defined as a very strong positive relationship.
+                    (0.7 or higher)</p>`)
+            }else if (chosenYAxis === "Possession%"){
+                player_rating
+                    .classed("active", false)
+                    .classed("inactive", true);
+                goals_for
+                    .classed("active", false)
+                    .classed("inactive", true);
+                possession
+                    .classed("active", true)
+                    .classed("inactive", false);
+                passes
+                    .classed("active", false)
+                    .classed("inactive", true);
+                movingAverage
+                    .classed("active", false)
+                    .classed("inactive", true);
+                shots
+                    .classed("active", false)
+                    .classed("inactive", true);
+                d3.select("#analysis")
+                .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                    <p style='color:white;'> We can observe a positive correlation
+                    of <strong id="corr">0.75</strong>.<br> This implies 
+                    that the hightest the ball possesion, the more the team has points.
+                    <br> The correlation is here defined as a very strong positive relationship.
+                    (0.7 or higher) </p>`)
+            }else if (chosenYAxis === "Pass%"){
+                player_rating
+                    .classed("active", false)
+                    .classed("inactive", true);
+                goals_for
+                    .classed("active", false)
+                    .classed("inactive", true);
+                possession
+                    .classed("active", false)
+                    .classed("inactive", true);
+                passes
+                    .classed("active", true)
+                    .classed("inactive", false);
+                movingAverage
+                    .classed("active", false)
+                    .classed("inactive", true);
+                shots
+                    .classed("active", false)
+                    .classed("inactive", true);
+                d3.select("#analysis")
+                .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                    <p style='color:white;'> We can observe a positive correlation
+                    of <strong id="corr">0.71</strong>.<br> This implies 
+                    that the more passes a team makes, the more points a team has.
+                    <br> The correlation is here defined as a very strong positive relationship.
+                    (0.7 or higher) </p>`)
+            //text to modify
+            }else if (chosenYAxis === "MA"){
+                player_rating
+                    .classed("active", false)
+                    .classed("inactive", true);
+                goals_for
+                    .classed("active", false)
+                    .classed("inactive", true);
+                possession
+                    .classed("active", false)
+                    .classed("inactive", true);
+                passes
+                    .classed("active", false)
+                    .classed("inactive", true);
+                movingAverage
+                    .classed("active", true)
+                    .classed("inactive", false);
+                shots
+                    .classed("active", false)
+                    .classed("inactive", true);
+                d3.select("#analysis")
+                .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                    <p style='color:white;'> We can observe a positive correlation
+                    of <strong id="corr">0.64</strong>.<br> This implies 
+                    that the more a team spend in transfers in the last 3 years, the more points a team has.
+                    <br> The correlation is here defined as a strong positive relationship.
+                    (between 0.4 and 0.69) </p>`)
+            }else if (chosenYAxis === "Shots pg"){
+                player_rating
+                    .classed("active", false)
+                    .classed("inactive", true);
+                goals_for
+                    .classed("active", false)
+                    .classed("inactive", true);
+                possession
+                    .classed("active", false)
+                    .classed("inactive", true);
+                passes
+                    .classed("active", false)
+                    .classed("inactive", true);
+                movingAverage
+                    .classed("active", false)
+                    .classed("inactive", true);
+                shots
+                    .classed("active", true)
+                    .classed("inactive", false);
+                d3.select("#analysis")
+                .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                    <p style='color:white;'> We can observe a positive correlation
+                    of <strong id="corr">0.73</strong>.<br> This implies 
+                    that the more shots a team makes per game, the more points a team has.
+                    <br> The correlation is here defined as a very strong positive relationship.
+                    (0.7 or higher) </p>`)
+            }else{
+                player_rating
+                .classed("active", false)
+                .classed("inactive", true);
+                goals_for
+                    .classed("active", true)
+                    .classed("inactive", false);
+                possession
+                    .classed("active", false)
+                    .classed("inactive", true);
+                passes
+                    .classed("active", false)
+                    .classed("inactive", true);
+                movingAverage
+                    .classed("active", false)
+                    .classed("inactive", true);
+                shots
+                    .classed("active", false)
+                    .classed("inactive", true);
+                    //text to modify
+                d3.select("#analysis")
+                .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                    <p style='color:white;'> We can observe a positive correlation
+                    of <strong id="corr">0.62</strong>.<br> This implies 
+                    that the more goals a team scores, the more points a team has.
+                    <br> The correlation is here defined as a strong positive relationship.
+                    (between 0.4 and 0.69) </p>`)
+            }  
+        }else{
+            ranking
+                .classed("active", true)
+                .classed("inactive", false);
+            points
+                .classed("active", false)
+                .classed("inactive", true);
+                //text to modify
+                if (chosenYAxis === "avg player rating"){
+                    player_rating
+                    .classed("active", true)
+                    .classed("inactive", false);
+                    goals_for
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    possession
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    passes
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    movingAverage
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    shots
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    d3.select("#analysis")
+                    .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                        <p style='color:white;'> We can observe a negative correlation
+                        of <strong id="corr">-0.63</strong>.<br> This implies 
+                        that the more goals a team scores, the better the team is ranked.
+                        <br> The correlation is here defined as a strong negative relationship. (between
+                        -0.4 and -0.69)</p>`)
+                }else if (chosenYAxis === "Possession%"){
+                    player_rating
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    goals_for
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    possession
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    passes
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    movingAverage
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    shots
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    d3.select("#analysis")
+                    .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                        <p style='color:white;'> We can observe a negative correlation
+                        of <strong id="corr">-0.73</strong>.<br> This implies 
+                        that the highter the ball possesion, the better the team is ranked.
+                        <br> The correlation is here defined as a very strong negative relationship.
+                        (-0.7 or higher) </p>`)
+                }else if (chosenYAxis === "Pass%"){
+                    player_rating
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    goals_for
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    possession
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    passes
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    movingAverage
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    shots
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    d3.select("#analysis")
+                    .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                        <p style='color:white;'> We can observe a negative correlation
+                        of <strong id="corr">-0.6</strong>.<br> This implies 
+                        that the more passes a team makes, the better the team is ranked.
+                        <br> The correlation is here defined as a strong negative relationship.
+                        (between -0.4 and -0.69) </p>`)
+                //text to modify
+                }else if (chosenYAxis === "MA"){
+                    player_rating
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    goals_for
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    possession
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    passes
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    movingAverage
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    shots
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    d3.select("#analysis")
+                    .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                        <p style='color:white;'> We can observe a negative correlation
+                        of <strong id="corr">-0.68</strong>.<br> This implies 
+                        that the more passes a team makes, the more points a team has.
+                        <br> The correlation is here defined as a strong negative relationship.
+                        (between -0.4 and -0.69) </p>`)
+                }else if (chosenYAxis === "Shots pg"){
+                    player_rating
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    goals_for
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    possession
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    passes
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    movingAverage
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    shots
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    d3.select("#analysis")
+                    .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                        <p style='color:white;'> We can observe a negative correlation
+                        of <strong id="corr">-0.58</strong>.<br> This implies 
+                        that the more a team spend in transfers in the last 3 years, the more points a team has.
+                        <br> The correlation is here defined as a strong negative relationship.
+                        (between -0.4 and -0.69) </p>`)
+                }else{
+                    player_rating
+                    .classed("active", false)
+                    .classed("inactive", true);
+                    goals_for
+                        .classed("active", true)
+                        .classed("inactive", false);
+                    possession
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    passes
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    movingAverage
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    shots
+                        .classed("active", false)
+                        .classed("inactive", true);
+                    d3.select("#analysis")
+                    .html(`<h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
+                        <p style='color:white;'> We can observe a negative correlation
+                        of <strong id="corr">-0.6</strong>.<br> This implies 
+                        that the more goals a team scores, the better the team is ranked.
+                        <br> The correlation is here defined as a strong negative relationship.
+                        (between -0.4 and -0.69) </p>`)
+                }
+        }
+    };
     var selection = d3.select(".league");
     selection.on("change",updateData)
 
@@ -182,13 +517,14 @@ function makeResponsive() {
     }
         //load the data
     function init(country){
+        var margin = {top: 20,right: 20,bottom:90,left:180}
         var chartGroup = svg.append('g')
             .attr('class', "scatterplot")
             .attr('transform', `translate(${margin.left},${margin.top})`);
-            
-        d3.csv(`../data/team_player/cleaned_final/leagues.csv`).then((data,error)=>{
+
+        d3.json("/scatter/data").then((data,error)=>{
             if (error) throw error;
-            data = data.filter(d=> d.Country == country)
+            data = data.filter(d => d.Country == country)
             //Format the data
             data.forEach((d)=>{
                 d.Ranking = +d.Ranking;
@@ -216,8 +552,8 @@ function makeResponsive() {
             var xlabelsGroup = chartGroup.append('g')
                 .attr('transform',`translate(${chartWidth/2},${chartHeight+20})`);
             var ylabelsGroup = chartGroup.append('g')
-                .attr('transform',`translate(${-35},${chartHeight/2})`)
-            var ranking = xlabelsGroup.append('text')
+                .attr('transform',`translate(${-27},${chartHeight/2})`)
+                var ranking = xlabelsGroup.append('text')
                 .attr("x",0)
                 .attr("y",20)
                 .attr("value","Ranking")
@@ -305,369 +641,7 @@ function makeResponsive() {
         //initialise tooltip, call the tip and event usage
             updateToolTip(chosenXAxis,chosenYAxis,circlesGroups);
         //label event listener
-        if (chosenXAxis === "Points") {
-            points
-                .classed("active", true)
-                .classed("inactive", false);
-            ranking
-                .classed("active", false)
-                .classed("inactive", true);
-            //text to modify
-            if (chosenYAxis === "avg player rating"){
-                d3.select("#analysis")
-                .html(`<h5 style='color:white;margin-top:5%'>${chosenXAxis} vs ${chosenYAxis}</h5>
-                    <br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.7</strong>.<br> This implies 
-                    that the less better the player rating, the more the team has points.
-                    <br> The correlation is here defined as a very strong positive relationship.
-                    (0.7 or higher)</p>`)
-            }else if (chosenYAxis === "Possession%"){
-                d3.select("#analysis")
-                .html(`<h5 style='color:white;margin-top:5%'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.7</strong>.<br> This implies 
-                    that the hightest the ball possesion, the more the team has points.
-                    <br> The correlation is here defined as a very strong positive relationship.
-                    (0.7 or higher) </p>`)
-            }else if (chosenYAxis === "Pass%"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            //text to modify
-            }else if (chosenYAxis === "MA"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            //text to modify
-            }else if (chosenYAxis === "Shots pg"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more goals a team scores, the better the team is ranked.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            }  
-        }else{
-            ranking
-                .classed("active", true)
-                .classed("inactive", false);
-            points
-                .classed("active", false)
-                .classed("inactive", true);
-                //text to modify
-                if (chosenYAxis === "avg player rating"){
-                    d3.select("#analysis")
-                    .html(`<br><br><br><br><br>
-                        <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                        <p style='color:white;'> We can observe a positive correlation
-                        of <strong id="corr">0.4</strong>.<br> This implies 
-                        that the less goals a team takes, the more points a team has.
-                        <br> The correlation is here defined as a strong positive relationship. (between
-                        0.4 and 0.69)</p>`)
-                }else if (chosenYAxis === "Possession%"){
-                    d3.select("#analysis")
-                    .html(`<br><br><br><br><br>
-                        <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                        <p style='color:white;'> We can observe a negative correlation
-                        of <strong id="corr">-0.7</strong>.<br> This implies 
-                        that the hightest the ball possesion, the better the team is ranked.
-                        <br> The correlation is here defined as a very strong negative relationship.
-                        (-0.7 or higher) </p>`)
-                }else if (chosenYAxis === "Pass%"){
-                    d3.select("#analysis")
-                    .html(`<br><br><br><br><br>
-                        <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                        <p style='color:white;'> We can observe a negative correlation
-                        of <strong id="corr">-0.6</strong>.<br> This implies 
-                        that the more passes a team makes, the better the team is ranked.
-                        <br> The correlation is here defined as a strong negative relationship.
-                        (between -0.4 and -0.69) </p>`)
-                //text to modify
-                }else if (chosenYAxis === "MA"){
-                    d3.select("#analysis")
-                    .html(`<br><br><br><br><br>
-                        <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                        <p style='color:white;'> We can observe a positive correlation
-                        of <strong id="corr">0.6</strong>.<br> This implies 
-                        that the more passes a team makes, the more points a team has.
-                        <br> The correlation is here defined as a strong positive relationship.
-                        (between 0.4 and 0.69) </p>`)
-                //text to modify
-                }else if (chosenYAxis === "Shots pg"){
-                    d3.select("#analysis")
-                    .html(`<br><br><br><br><br>
-                        <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                        <p style='color:white;'> We can observe a positive correlation
-                        of <strong id="corr">0.6</strong>.<br> This implies 
-                        that the more passes a team makes, the more points a team has.
-                        <br> The correlation is here defined as a strong positive relationship.
-                        (between 0.4 and 0.69) </p>`)
-                }else{
-                    d3.select("#analysis")
-                    .html(`<br><br><br><br><br>
-                        <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                        <p style='color:white;'> We can observe a negative correlation
-                        of <strong id="corr">-0.6</strong>.<br> This implies 
-                        that the more goals a team scores, the better the team is ranked.
-                        <br> The correlation is here defined as a strong negative relationship.
-                        (between -0.4 and -0.69) </p>`)
-                }
-        }
-        //text to modify
-        if (chosenYAxis === "avg player rating") {
-            player_rating
-                .classed("active", true)
-                .classed("inactive", false);
-            goals_for
-                .classed("active", false)
-                .classed("inactive", true);
-            possession
-                .classed("active", false)
-                .classed("inactive", true);
-            passes
-                .classed("active", false)
-                .classed("inactive", true);
-            movingAverage
-                .classed("active", false)
-                .classed("inactive", true);
-            shots
-                .classed("active", false)
-                .classed("inactive", true);
-            if (chosenXAxis === "Ranking"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.4</strong>.<br> This implies 
-                    that the less goals a team takes, the better the team is ranked.
-                    <br> The correlation is here defined as a strong positive relationship. (between
-                    0.4 and 0.69)</p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.4</strong>.<br> This implies 
-                    that the less goals a team takes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship. (between
-                    0.4 and 0.69)</p>`)
-            }
-        }else if (chosenYAxis === "Possession%") {
-            player_rating
-                .classed("active", false)
-                .classed("inactive", true);
-            goals_for
-                .classed("active", false)
-                .classed("inactive", true);
-            possession
-                .classed("active", true)
-                .classed("inactive", false);
-            passes
-                .classed("active", false)
-                .classed("inactive", true);
-            movingAverage
-                .classed("active", false)
-                .classed("inactive", true);
-            shots
-                .classed("active", false)
-                .classed("inactive", true);
-            if (chosenXAxis === "Ranking"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a negative correlation
-                    of <strong id="corr">-0.7</strong>.<br> This implies 
-                    that the hightest the ball possesion, the better the team is ranked.
-                    <br> The correlation is here defined as a very strong negative relationship.
-                    (-0.7 or higher) </p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.7</strong>.<br> This implies 
-                    that the hightest the ball possesion, the more point a team has.
-                    <br> The correlation is here defined as a very strong positive relationship.
-                    (0.7 or higher) </p>`)
-            }
-            
-        }else if (chosenYAxis === "Pass%") {
-            player_rating
-                .classed("active", false)
-                .classed("inactive", true);
-            goals_for
-                .classed("active", false)
-                .classed("inactive", true);
-            possession
-                .classed("active", false)
-                .classed("inactive", true);
-            passes
-                .classed("active", true)
-                .classed("inactive", false);
-            movingAverage
-                .classed("active", false)
-                .classed("inactive", true);
-            shots
-                .classed("active", false)
-                .classed("inactive", true);
-            if (chosenXAxis === "Ranking"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a negative correlation
-                    of <strong id="corr">-0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the better the team is ranked.
-                    <br> The correlation is here defined as a strong negative relationship.
-                    (between -0.4 and -0.69) </p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            }
-            //text to modify
-        }else if (chosenYAxis === "MA") {
-            player_rating
-                .classed("active", false)
-                .classed("inactive", true);
-            goals_for
-                .classed("active", false)
-                .classed("inactive", true);
-            possession
-                .classed("active", false)
-                .classed("inactive", true);
-            passes
-                .classed("active", false)
-                .classed("inactive", true);
-            movingAverage
-                .classed("active", true)
-                .classed("inactive", false);
-            shots
-                .classed("active", false)
-                .classed("inactive", true);
-            if (chosenXAxis === "Ranking"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a negative correlation
-                    of <strong id="corr">-0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the better the team is ranked.
-                    <br> The correlation is here defined as a strong negative relationship.
-                    (between -0.4 and -0.69) </p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            }
-            //text to modify
-        }else if (chosenYAxis === "Shots pg") {
-            player_rating
-                .classed("active", false)
-                .classed("inactive", true);
-            goals_for
-                .classed("active", false)
-                .classed("inactive", true);
-            possession
-                .classed("active", false)
-                .classed("inactive", true);
-            passes
-                .classed("active", false)
-                .classed("inactive", true);
-            movingAverage
-                .classed("active", false)
-                .classed("inactive", true);
-            shots
-                .classed("active", true)
-                .classed("inactive", false);
-            if (chosenXAxis === "Ranking"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a negative correlation
-                    of <strong id="corr">-0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the better the team is ranked.
-                    <br> The correlation is here defined as a strong negative relationship.
-                    (between -0.4 and -0.69) </p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more passes a team makes, the more points a team has.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            }
-        }else {
-            player_rating
-                .classed("active", false)
-                .classed("inactive", true);
-            goals_for
-                .classed("active", true)
-                .classed("inactive", false);
-            possession
-                .classed("active", false)
-                .classed("inactive", true);
-            passes
-                .classed("active", false)
-                .classed("inactive", true);
-            movingAverage
-                .classed("active", false)
-                .classed("inactive", true);
-            shots
-                .classed("active", false)
-                .classed("inactive", true);
-            if (chosenXAxis === "Ranking"){
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a negative correlation
-                    of <strong id="corr">-0.6</strong>.<br> This implies 
-                    that the more goals a team scores, the better the team is ranked.
-                    <br> The correlation is here defined as a strong negative relationship.
-                    (between -0.4 and -0.69) </p>`)
-            }else{
-                d3.select("#analysis")
-                .html(`<br><br><br><br><br>
-                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                    <p style='color:white;'> We can observe a positive correlation
-                    of <strong id="corr">0.6</strong>.<br> This implies 
-                    that the more goals a team scores, the better the team is ranked.
-                    <br> The correlation is here defined as a strong positive relationship.
-                    (between 0.4 and 0.69) </p>`)
-            }
-        }
+            renderText(chosenXAxis,chosenYAxis,points,ranking,player_rating,goals_for,possession,passes,movingAverage,shots);
             xlabelsGroup.selectAll('text')
             .on('click', function(){
                 var valueX = d3.select(this).attr("value");
@@ -678,137 +652,7 @@ function makeResponsive() {
                     xAxis = xAxes(xLinearScale, xAxis);
                     circles = renderCircles(circles,xLinearScale,chosenXAxis,yLinearScale,chosenYAxis);
                     circlesGroups = updateToolTip(chosenXAxis,chosenYAxis,circlesGroups);
-                    if (chosenXAxis === "Points") {
-                        points
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        ranking
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        //text to modify
-                        if (chosenYAxis === "avg player rating"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.4</strong>.<br> This implies 
-                                that the less goals a team takes, the better the team is ranked.
-                                <br> The correlation is here defined as a strong positive relationship. (between
-                                0.4 and 0.69)</p>`)
-                        }else if (chosenYAxis === "Possession%"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.7</strong>.<br> This implies 
-                                that the hightest the ball possesion, the more point a team has.
-                                <br> The correlation is here defined as a very strong positive relationship.
-                                (0.7 or higher) </p>`)
-                        }else if (chosenYAxis === "Pass%"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        //text to modify
-                        }else if (chosenYAxis === "MA"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        //text to modify
-                        }else if (chosenYAxis === "Shots pg"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more goals a team scores, the better the team is ranked.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        }  
-                    }else{
-                        ranking
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        points
-                            .classed("active", false)
-                            .classed("inactive", true);
-                            //text to modify
-                            if (chosenYAxis === "avg player rating"){
-                                d3.select("#analysis")
-                                .html(`<br><br><br><br><br>
-                                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                    <p style='color:white;'> We can observe a positive correlation
-                                    of <strong id="corr">0.4</strong>.<br> This implies 
-                                    that the less goals a team takes, the more points a team has.
-                                    <br> The correlation is here defined as a strong positive relationship. (between
-                                    0.4 and 0.69)</p>`)
-                            }else if (chosenYAxis === "Possession%"){
-                                d3.select("#analysis")
-                                .html(`<br><br><br><br><br>
-                                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                    <p style='color:white;'> We can observe a negative correlation
-                                    of <strong id="corr">-0.7</strong>.<br> This implies 
-                                    that the hightest the ball possesion, the better the team is ranked.
-                                    <br> The correlation is here defined as a very strong negative relationship.
-                                    (-0.7 or higher) </p>`)
-                            }else if (chosenYAxis === "Pass%"){
-                                d3.select("#analysis")
-                                .html(`<br><br><br><br><br>
-                                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                    <p style='color:white;'> We can observe a negative correlation
-                                    of <strong id="corr">-0.6</strong>.<br> This implies 
-                                    that the more passes a team makes, the better the team is ranked.
-                                    <br> The correlation is here defined as a strong negative relationship.
-                                    (between -0.4 and -0.69) </p>`)
-                            //text to modify
-                            }else if (chosenYAxis === "MA"){
-                                d3.select("#analysis")
-                                .html(`<br><br><br><br><br>
-                                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                    <p style='color:white;'> We can observe a positive correlation
-                                    of <strong id="corr">0.6</strong>.<br> This implies 
-                                    that the more passes a team makes, the more points a team has.
-                                    <br> The correlation is here defined as a strong positive relationship.
-                                    (between 0.4 and 0.69) </p>`)
-                            //text to modify
-                            }else if (chosenYAxis === "Shots pg"){
-                                d3.select("#analysis")
-                                .html(`<br><br><br><br><br>
-                                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                    <p style='color:white;'> We can observe a positive correlation
-                                    of <strong id="corr">0.6</strong>.<br> This implies 
-                                    that the more passes a team makes, the more points a team has.
-                                    <br> The correlation is here defined as a strong positive relationship.
-                                    (between 0.4 and 0.69) </p>`)
-                            }else{
-                                d3.select("#analysis")
-                                .html(`<br><br><br><br><br>
-                                    <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                    <p style='color:white;'> We can observe a negative correlation
-                                    of <strong id="corr">-0.6</strong>.<br> This implies 
-                                    that the more goals a team scores, the better the team is ranked.
-                                    <br> The correlation is here defined as a strong negative relationship.
-                                    (between -0.4 and -0.69) </p>`)
-                            }
-                    }
+                    renderText(chosenXAxis,chosenYAxis,points,ranking,player_rating,goals_for,possession,passes,movingAverage,shots);
                 }
             });
             ylabelsGroup.selectAll('text')
@@ -821,238 +665,7 @@ function makeResponsive() {
                     yAxis = yAxes(yLinearScale, yAxis);
                     circles = renderCircles(circles,xLinearScale,chosenXAxis,yLinearScale,chosenYAxis);
                     circlesGroups = updateToolTip(chosenXAxis,chosenYAxis,circlesGroups);
-                    if (chosenYAxis === "avg player rating") {
-                        player_rating
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        goals_for
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        possession
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        passes
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        movingAverage
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        shots
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        if (chosenXAxis === "Ranking"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.4</strong>.<br> This implies 
-                                that the less goals a team takes, the better the team is ranked.
-                                <br> The correlation is here defined as a strong positive relationship. (between
-                                0.4 and 0.69)</p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.4</strong>.<br> This implies 
-                                that the less goals a team takes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship. (between
-                                0.4 and 0.69)</p>`)
-                        }
-                    }else if (chosenYAxis === "Possession%") {
-                        player_rating
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        goals_for
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        possession
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        passes
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        movingAverage
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        shots
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        if (chosenXAxis === "Ranking"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a negative correlation
-                                of <strong id="corr">-0.7</strong>.<br> This implies 
-                                that the hightest the ball possesion, the better the team is ranked.
-                                <br> The correlation is here defined as a very strong negative relationship.
-                                (-0.7 or higher) </p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.7</strong>.<br> This implies 
-                                that the hightest the ball possesion, the more point a team has.
-                                <br> The correlation is here defined as a very strong positive relationship.
-                                (0.7 or higher) </p>`)
-                        }
-                        
-                    }else if (chosenYAxis === "Pass%") {
-                        player_rating
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        goals_for
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        possession
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        passes
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        movingAverage
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        shots
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        if (chosenXAxis === "Ranking"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a negative correlation
-                                of <strong id="corr">-0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the better the team is ranked.
-                                <br> The correlation is here defined as a strong negative relationship.
-                                (between -0.4 and -0.69) </p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        }
-                        //text to modify
-                    }else if (chosenYAxis === "MA") {
-                        player_rating
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        goals_for
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        possession
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        passes
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        movingAverage
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        shots
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        if (chosenXAxis === "Ranking"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a negative correlation
-                                of <strong id="corr">-0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the better the team is ranked.
-                                <br> The correlation is here defined as a strong negative relationship.
-                                (between -0.4 and -0.69) </p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        }
-                        //text to modify
-                    }else if (chosenYAxis === "Shots pg") {
-                        player_rating
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        goals_for
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        possession
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        passes
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        movingAverage
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        shots
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        if (chosenXAxis === "Ranking"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a negative correlation
-                                of <strong id="corr">-0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the better the team is ranked.
-                                <br> The correlation is here defined as a strong negative relationship.
-                                (between -0.4 and -0.69) </p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more passes a team makes, the more points a team has.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        }
-                    }else {
-                        player_rating
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        goals_for
-                            .classed("active", true)
-                            .classed("inactive", false);
-                        possession
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        passes
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        movingAverage
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        shots
-                            .classed("active", false)
-                            .classed("inactive", true);
-                        if (chosenXAxis === "Ranking"){
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a negative correlation
-                                of <strong id="corr">-0.6</strong>.<br> This implies 
-                                that the more goals a team scores, the better the team is ranked.
-                                <br> The correlation is here defined as a strong negative relationship.
-                                (between -0.4 and -0.69) </p>`)
-                        }else{
-                            d3.select("#analysis")
-                            .html(`<br><br><br><br><br>
-                                <h5 style='color:white;'>${chosenXAxis} vs ${chosenYAxis}</h5><br>
-                                <p style='color:white;'> We can observe a positive correlation
-                                of <strong id="corr">0.6</strong>.<br> This implies 
-                                that the more goals a team scores, the better the team is ranked.
-                                <br> The correlation is here defined as a strong positive relationship.
-                                (between 0.4 and 0.69) </p>`)
-                        }
-                    }
+                    renderText(chosenXAxis,chosenYAxis,points,ranking,player_rating,goals_for,possession,passes,movingAverage,shots);
                 }
             });
             legend.selectAll('text')
@@ -1090,45 +703,48 @@ function makeResponsive() {
                 }
             })
         });
-    }
-    init(country);      
+     }
+     init(country);      
         //correlation data
-    d3.csv(`../data/team_player/cleaned_final/correlation.csv`).then((corrData,error)=>{
-        var labels = corrData.columns.map(d=>(d.split(" ").length>2)?(
-                d.split(" ")[1])+" "+(d.split(" ")[2]):(d.split(" ")[0]))
-        var correlationMatrix = []
-        for(var i=0;i<labels.length;i++){
-            correlationMatrix.push(corrData.map(d => +(parseFloat(d[corrData.columns[i]]).toFixed(1))))
-        };
-
         var margin = {top: 30, right: 10, bottom: 90, left: 100},
                 width = window.innerWidth/2.5,
-                height = window.innerWidth/3,
-                data = correlationMatrix,
-                labelsData = labels;
+                height = window.innerWidth/3;
+                
             
         var widthLegend = 60;
-        
-        if(!data){
-            throw new Error('Please pass data');
+
+        var corr = d3.select("#corrmatrix")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var l = d3.select("#corrmatrix")
+            .append("svg")
+            .attr("class","legendMatrix")
+            .attr("transform",`translate(0,${margin.top+5})`)
+            .attr("width", widthLegend)
+            .attr("height", height + margin.top + margin.bottom)
+            
+
+    d3.json("/corr/data").then((corrData,error)=>{
+        var labelss = corrData.map(d=>Object.keys(d));
+        var labels = labelss[0].map(d=>(d.split(" ").length>2)?(
+            d.split(" ")[1])+" "+(d.split(" ")[2]):(d.split(" ")[0]));
+    
+        var correlationMatrix = [];
+        for(var i=0;i<labelss[0].length;i++){
+            corrData.map(d => correlationMatrix.push(d[labelss[0][i]]));
         };
-        if(!Array.isArray(data) || !data.length || !Array.isArray(data[0])){
-            throw new Error('It should be a 2-D array');
-        };
         
+        var data = correlationMatrix;
+        var labelsData = labels;
         var maxValue = d3.max(data, function(layer) { return d3.max(layer, function(d) { return d; }); });
         var minValue = d3.min(data, function(layer) { return d3.min(layer, function(d) { return d; }); });
     
         var numrows = data.length;
         var numcols = data[0].length;
-    
-        var corr = d3.select("#corrmatrix")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
         var x = d3.scaleBand()
             .domain(d3.range(numcols))
             .range([0, width]);
@@ -1264,13 +880,7 @@ function makeResponsive() {
                 )
             });
         
-        var l = d3.select("#corrmatrix")
-            .append("svg")
-            .attr("class","legendMatrix")
-            .attr("transform",`translate(0,${margin.top+5})`)
-            .attr("width", widthLegend)
-            .attr("height", height + margin.top + margin.bottom)
-            .call(legend);
+        l.call(legend);
 
         var yy = d3.scaleLinear()
             .range([height-10, 0])

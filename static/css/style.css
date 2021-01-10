@@ -105,4 +105,18 @@ select{
 .legendMatrix rect:hover {
   cursor: pointer;
 }
-
+#analysis h5{
+  margin-top: 25%;
+}
+table{
+  margin-left: 5%;
+  margin-top: 5%;
+}
+#title1 {
+  background-color: whitesmoke;
+  color:rgba(35, 47, 52);
+  border-radius: 25px;
+  padding-top: 8%;
+  padding-bottom:5%;
+  margin-left: 5%;
+}

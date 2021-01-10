@@ -74,6 +74,9 @@ text{
   #main{
     padding-left: 0%;
   }
+  #analysis h5{
+    margin-top: 5%;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -86,5 +89,8 @@ text{
   #page{
     padding-left: 1%;
     padding-right: 1%;
+  }
+  #analysis h5{
+    margin-top: 5%;
   }
 }
