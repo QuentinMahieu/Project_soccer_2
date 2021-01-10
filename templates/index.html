@@ -1,82 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Winning Team</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/d3Style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>The Winning Team</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/d3Style.css">
-
-</head>
-
-<body>
-  <!--navigation bar-->
-  <nav class="navbar navbar-expand-md floating p-0">
-    <a class="navbar-brand active p-2 ml-1" href="index.html">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <body>
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-md floating p-0">
+      <a class="navbar-brand active p-2 ml-1" href="index.html">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item ">
-            <a class="nav-link" href="templates/correlation.html">Correlation</a>
+          <li class="nav-item">
+            <a class="nav-link" href="templates/correlation.html"
+              >Correlation</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="html/comparison.html">Diversity</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="html/data.html">Transfers</a>
+            <a class="nav-link" href="/financial">Transfers</a>
           </li>
         </ul>
       </div>
-  </nav>
-  <!--correlation page-->
-  <div class="container-fluid" id="page">
-    <div class="container-xxl" id="main">
-      <div class="row justify-content-center" >
-        <div class="col-xs-12  col-md-12">
-          <select class="league">
-            <option id="eng">England</option>
-            <option id="es">Spain</option>
-            <option id="it">Italy</option>
-          </select>
-          <div id="scatter"></div>
+    </nav>
+    <!--correlation page-->
+    <div class="container-fluid" id="page">
+      <div class="container-xxl" id="main">
+        <div class="row justify-content-center">
+          <div class="col-xs-12 col-md-12">
+            <select class="league">
+              <option id="eng">England</option>
+              <option id="es">Spain</option>
+              <option id="it">Italy</option>
+            </select>
+            <div id="scatter"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-s-12 col-md-7 mt-3">
+            <h3 style="color: rgba(255, 255, 255, 0.7)">Correlation Matrix</h3>
+            <div style="display: inline-block" id="corrmatrix"></div>
+          </div>
+          <div class="col-s-12 col-md-4 mt-3">
+            <h3 style="color: rgba(255, 255, 255, 0.7)">Observations</h3>
+            <div id="analysis"></div>
+          </div>
         </div>
       </div>
-      <div class="row" >
-        <div class="col-s-12  col-md-7 mt-3">
-          <h3 style="color:rgba(255, 255, 255, 0.7);">Correlation Matrix</h3>
-          <div style="display:inline-block" id="corrmatrix"></div>
-        </div>
-          <div class="col-s-12  col-md-4  mt-3">
-          <h3 style="color:rgba(255, 255, 255, 0.7);">Observations</h3>
-          <div id="analysis"></div>
-        </div>
-      </div>
-    </div>  
-  </div>
-  <!-- Footer-->
-  <div id="footer">
-    <p>The Coding Boot Camp&copy;2020 by Quentin Mahieu</p>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
-  <script src="https://d3js.org/d3-interpolate.v2.min.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <!-- Q's script-->
-  <script type="text/javascript" src="assets/js/quentin.js"></script>
-  <!-- Z's script-->
-  <!-- <script type="text/javascript" src="assets/js/z.js"></script> -->
-  <!-- Louis's script-->
-  <!-- <script type="text/javascript" src="assets/js/louis.js"></script> -->
-
-</body>
-
+    </div>
+    <!-- Footer-->
+    <div id="footer">
+      <p>The Coding Boot Camp&copy;2020 by Quentin Mahieu</p>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v2.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Q's script-->
+    <script type="text/javascript" src="assets/js/quentin.js"></script>
+    <!-- Z's script-->
+    <!-- <script type="text/javascript" src="assets/js/z.js"></script> -->
+    <!-- Louis's script-->
+    <!-- <script type="text/javascript" src="assets/js/louis.js"></script> -->
+  </body>
 </html>
