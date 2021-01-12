@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Events</title>
+    <title>The Winning Team: Financial Analysis</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <link
       rel="stylesheet"
@@ -12,60 +12,219 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <!-- <link
+    <link
       rel="stylesheet"
-      href="{{url_for('static',filename = 'css/style.css')}}"
-    /> -->
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename = 'css/louis.css')}}"
+    />
   </head>
-
+​
   <body>
+    <nav class="navbar navbar-expand-md floating p-0">
+      <a class="navbar-brand p-3 ml-2" href="/">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+​
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/correlation">Correlation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/diversity">Diversity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/financial">Transfers</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          <select id="league">
-            <option value="England">England</option>
-            <option value="Spain">Spain</option>
-            <option value="Italy">Italy</option>
-          </select>
-
+      <div class="row backer py-3">
+        <div class="col-md-4 col-sm-12 mt-5 align-middle">
+          <div class="container py-3 text-left align-middle" style="color: white">
+            <h3 class="text-center py-2">
+              <strong><u>Financial Analysis </u></strong>
+              <i class="bi bi-search"></i>
+            </h3>
+            <p>
+              <em
+                >On this page, we dive deeper into the impact financials have in
+                the world of professional football. We'll start with an
+                historical overview of each league, and then, provide some more
+                detailed analysis from recent years.</em
+              >
+            </p>
+            <hr class="pb-1" style="border-color: white" />
+            <p>
+              This graph on the right shows the change in annual transfer spend
+              over the last 30 years. With individual player sums now reaching
+              over 100m Euros, we know anecdotally that investing in new talent
+              has become increasingly important. Here we can see just how
+              important.
+            </p>
+            <div id="transfer_analysis"></div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-10">
           <div id="plot"></div>
         </div>
-        <div class="col-md-6">
-          <br />
-          <br />
-          <h3>Financial analysis</h3>
-          <p>
-            Anecdotally, we know that finances have become increasingly
-            important in the world of professional football. In this section, we
-            dig into this a little more. Immediately by examining this graph on
-            the left you can see the truth of this.
-          </p>
-          <div id="transfer_analysis"></div>
+      </div>
+      <div class="row middle py-4 justify-content-left align-items-center">
+        <div class="col-md-3">
+          <div class="card" style="width: 22rem">
+            <div
+              class="card-header"
+              style="background-color: rgb(33, 40, 42)"
+              ;
+            >
+              <h5 class="card-title" style="color: white">
+                <strong>Your Web Guide:</strong>
+              </h5>
+              <i
+                class="bi bi-book py-0"
+                style="font-size: 3rem; color: white"
+              ></i>
+            </div>
+            <div class="card-body">
+              <p class="card-text text-left">
+                When you change the dropdowns, the visualisations dynamically
+                update. Enjoy!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card" style="width: 14rem">
+            <img
+              class="card-img-top"
+              src="https://turbologo.com/articles/wp-content/uploads/2020/01/Premier-League-symbol-958x575.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h6 class="card-title">Select League:</h6>
+​
+              <select id="league">
+                <option value="England">England</option>
+                <option value="Spain">Spain</option>
+                <option value="Italy">Italy</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card" style="width: 14rem">
+            <img
+              class="card-img-top"
+              src="https://images.pexels.com/photos/21294/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h6 class="card-title">Choose year</h6>
+              <select id="year">
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+              </select>
+            </div>
+          </div>
+        </div>
+​
+        <div class="col-md-2">
+          <div class="card" style="width: 14rem">
+            <img
+              class="card-img-top"
+              src="https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h6 class="card-title">Choose measure</h6>
+              <select id="measure">
+                <option value="Wages">Player Wages</option>
+                <option value="Transfers">Transfer Spend</option>
+                <option value="Value">Player Value</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row justify-content-md-center">
-        <select id="year">
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-        </select>
-        <select id="measure">
-          <option value="Wages">Player Wages</option>
-          <option value="Transfers">Transfer Spend</option>
-          <option value="Value">Player Value</option>
-        </select>
-        <br />
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div id="average"></div>
-          <div id="table"></div>
+      <div class="row backer py-5">
+        <div class="col-md-5 mr-5">
+          <div class="card">
+            <div
+              class="card-header"
+              style="background-color: rgb(74, 77, 78)"
+              ;
+            >
+              <h4 class="card-title" style="color: white">
+                <strong>The Top 4 vs. League:</strong>
+              </h4>
+              <h6 style="color: white">
+                In this table, we see how the top 4 teams outlayed financially
+                in a given year. When comparing this with the graph on the
+                right, we start to get a picture of the need to spend $$$.
+              </h6>
+            </div>
+            <div
+              class="card-header"
+              style="background-color: rgb(240, 238, 238)"
+              ;
+            >
+              <h5>
+                <strong>League average:</strong>
+                <div id="average"></div>
+              </h5>
+            </div>
+          </div>
+        <div class = "table-responsive justify-content-center">
+          <table id="summary-table" class="table">
+                <thead>
+                  <tr class = "table-primary">
+                    <th class="table-head">Position</th>
+                    <th class="table-head">Team</th>
+                    <th class="table-head">Financial Spend (€)</th>
+                    <th class="table-head">vs. League (€)</th>
+                  </tr>
+                </thead>      
+              </table>
+            </div>
         </div>
-        <div class="col-md-6">
-          <div id="comparison"></div>
+                <div class="col-md-6">
+          <!-- <div class="card">
+            <div
+              class="card-header"
+              style="background-color: rgb(74, 77, 78)"
+              ;
+            >
+              <h4 class="card-title" style="color: white">
+                <strong>Comparison Bar Chart:</strong>
+              </h4>
+              <h6 style="color: white">
+                In this table, we compare the spend for your chosen measure between the Top 4 Average, the League and the Bottom 4.
+              </h6>
+            </div>
+            <div class="card-body transparent"> -->
+                <div id="comparison"></div>
+<!--             
+            </div>
+          </div> -->
+        </div>
+        
         </div>
       </div>
     </div>

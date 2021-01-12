@@ -1,0 +1,129 @@
+.iframeContainer {
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+  }
+  ​
+  /* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/) */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  /* navbar */
+  nav {
+    background-color: rgba(35, 47, 52);
+  }
+  .navbar-nav.mr-auto {
+    visibility: hidden;
+  }
+  a {
+    color: #ffffff;
+    opacity: 0.7;
+    font-size: larger;
+  }
+  .navbar-brand.active {
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+    color: rgba(35, 47, 52);
+  }
+  .nav-link.active {
+    opacity: 1;
+  }
+  ​
+  .navbar-brand.active:hover {
+    color: black;
+  }
+  /* Set the border color */
+  ​
+  .navbar-toggler {
+    border-color: rgb(255, 255, 255);
+    opacity: 0.7;
+  }
+  /* Setting the stroke to green using rgb values (0, 128, 0) */
+  ​
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  /* body */
+  body {
+    /* Padding bottom by footer height */
+    padding-bottom: 80px;
+    text-align: center;
+    background-color: whitesmoke;
+  }
+  #main {
+    border-radius: 25px;
+    background-color: rgba(35, 47, 52);
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+    margin-right: 1%;
+  }
+  svg {
+    background-color: none;
+    border-color: none;
+  }
+  .article {
+    margin-top: 1%;
+  }
+  ​
+  .backer {
+    background-color: rgb(33, 40, 42);
+  }
+  .middle {
+    background-color: rgb(74, 77, 78);
+  }
+  .transparent {
+    background-color: transparent;
+  }
+  ​
+  /* select {
+    background-color: transparent;
+    border: none;
+    margin-top: 1%;
+    font-size: large;
+    background-color: transparent;
+    color: whitesmoke;
+  } */
+  ​
+  #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%; /* Set the fixed height of the footer here */
+    height: 10px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+    background-color: rgba(35, 47, 52);
+    color: #ffffff;
+  }
+  #footer p {
+    margin: 0;
+    font-size: 16px;
+  }
+  .legendScatter text {
+    transition: fill 0.3s ease-out;
+    opacity: 0.7;
+  }
+  .legendScatter text:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .legendMatrix rect:hover {
+    cursor: pointer;
+  }
+  #analysis h5 {
+    margin-top: 25%;
+  }
+  table {
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  #title1 {
+    background-color: whitesmoke;
+    color: rgba(35, 47, 52);
+    border-radius: 25px;
+    padding-top: 8%;
+    padding-bottom: 5%;
+    margin-left: 5%;
+  }
+  

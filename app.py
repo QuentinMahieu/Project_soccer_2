@@ -23,18 +23,38 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-@app.route("/",methods=['GET', 'POST'])
+@app.route("/",methods=['GET',"POST"])
 def home():
-    
+    select = "England"
     if request.method == 'POST':
-        select = request.form.value('league')
-    else :
-        select = "England"
-    # Run the scrape function
+        select = request.form.get('league')
+    #get the title
+    if select == "England":
+        league_title = "English Premiere League"
+        league_logo = "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/23.png&h=60&w=60&scale=crop&cquality=40&location=origin"
+    if select == "Spain":
+        league_title = "La Liga BVBA"
+        league_logo = "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/15.png&h=60&w=60&scale=crop&cquality=40&location=origin"
+    if select == "Italy":
+        league_title = "Serie A"
+        league_logo = "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/12.png&h=60&w=60&scale=crop&cquality=40&location=origin"
+    # Collect the data
+    pred_col = soccer_db.predictions.find({"Country":select},{'_id': False}).sort("Predictions Final Ranking",1)
+    pred_data = []
+    for doc in pred_col:
+        pred_data.append(doc)
+    return render_template("index.html", pred = pred_data, title=league_title,logo = league_logo)
+
+@app.route("/scrape",methods=['GET', 'POST'])
+def scrape():
+    select = "England"
+    if request.method == 'POST':
+        select = request.form.get('league')
+        return redirect(url_for('home',select=select))
+        
+    # Collect the data
     ranking_data = scrape_ranking.scrape(select)
-    # for record in ranking_data:
-    #     print(record["Ranking"])
-    return render_template("index.html", ranking=ranking_data)
+    return (jsonify(ranking_data))
 
 @app.route("/financial")
 def financial():
@@ -105,33 +125,22 @@ def diversity():
 @app.route("/diversity/diversity_stats", methods=["GET"])
 def summary_diversity_stats():
     #create connection
-    import time
-    start = time.time()
-    client = MongoClient(f"mongodb+srv://Ezequiel:{mongo}@cluster0.ddqv6.mongodb.net/{dbname}?retryWrites=true&w=majority")
-    soccer_db = client.get_database('Soccer_db')
     collection = soccer_db.summary_diversity_stats.find({},{'_id': False})
     data = []
     for doc in collection:
         data.append(doc)
-    client.close()
-    end = time.time()
-    print(end - start)
+
     return  (jsonify(data))
 
 @app.route("/diversity/geo_data", methods=["GET"])
 def geo_data():
     #create connection
-    import time
-    start = time.time()
-    client = MongoClient(f"mongodb+srv://Ezequiel:{mongo}@cluster0.ddqv6.mongodb.net/{dbname}?retryWrites=true&w=majority")
-    soccer_db = client.get_database('Soccer_db')
+
     collection = soccer_db.geo_data.find({},{'_id': False})
     data = []
     for doc in collection:
         data.append(doc)
-    client.close()
-    end = time.time()
-    print(end - start)
+    
     return  (jsonify(data))
 
 

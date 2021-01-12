@@ -2,50 +2,58 @@ from selenium import webdriver
 import time
 from collections import defaultdict
 import pandas as pd
+from selenium.webdriver.chrome.options import Options
 
 def scrape(league):
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver')
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    driver = webdriver.Chrome('/usr/local/bin/chromedriver',options=options)
     if league == "England":
-        url = "https://www.flashscore.com.au/football/england/epl/standings/"
+        url = "https://www.espn.com.au/football/table/_/league/eng.1"
     if league == "Spain":
-        url = "https://www.flashscore.com.au/football/spain/laliga/standings/"
+        url = "https://www.espn.com.au/football/table/_/league/esp.1"
     if league == "Italy":
-        url = "https://www.flashscore.com.au/football/italy/serie-a/standings/"
-    #urls = [url_eng,url_es,url_it]
+        url = "https://www.espn.com.au/football/table/_/league/ita.1"
 
     table = defaultdict(list)
-    #for url in urls:
+
     driver.get(url)
     time.sleep(1)
 
-    col1 = driver.find_elements_by_xpath('//a[@class="rowCellParticipantName___38vskiN"]')
-    col2 = driver.find_elements_by_xpath('//span[@class="  rowCell____vgDgoa cell___4WLG6Yd "]')
+    imgs = driver.find_elements_by_xpath('//img[@class="Image Logo Logo__sm"]')
+    rows = driver.find_elements_by_xpath('//td[@class="Table__TD"]')
     
-    for i in range(len(col1)):
+    for i in range(len(imgs)):
         table["Ranking"].append(i+1)
-        table["Team"].append(col1[i].text)
+        table["Team"].append(imgs[i].get_attribute("title"))
         if league == "England":
             table["League"].append('England')
         if league == "Spain":
             table["League"].append('Spain')
         if league == "Italy":
             table["League"].append('Italy')
+        table["img"].append(imgs[i].get_attribute("src"))
     count = 0
-    for i in range(len(col2)):
+    for i in range(len(rows)):
+        if i <20:
+            count=-1
+            pass 
         if count == 0 :
-            table["MP"].append(col2[i].text)
+            table["MP"].append(rows[i].text)
         if count == 1:
-            table["W"].append(col2[i].text)
+            table["W"].append(rows[i].text)
         if count == 2:
-            table["D"].append(col2[i].text)
+            table["D"].append(rows[i].text)
         if count == 3:
-            table["L"].append(col2[i].text)
-        if count == 4:
-            table["Pts"].append(col2[i].text)
+            table["L"].append(rows[i].text)
+        if count == 7:
+            table["Pts"].append(rows[i].text)
             count = -1
         count+=1
-    table = dict(table)
     driver.close()
+    table = dict(table)
+    df = pd.DataFrame(table)
+    table_dict = df.to_dict('records')
     # Return results
-    return table
+    return table_dict
 

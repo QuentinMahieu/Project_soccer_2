@@ -78,7 +78,24 @@ select{
   background-color:transparent;
   color: whitesmoke;
 }
-
+h5{
+  text-align: left;
+}
+button{
+  padding-top:0%;
+  padding-bottom:0%;
+}
+#home{
+  color: whitesmoke;
+  text-align: left;
+  font-size: smaller;
+}
+#pages{
+  color: #f5f5f5;
+  font-size: smaller;
+  text-align: left;
+  border-radius: 25px;
+}
 #footer {
   position: absolute;
   bottom: 0;
@@ -108,15 +125,21 @@ select{
 #analysis h5{
   margin-top: 25%;
 }
-table{
-  margin-left: 5%;
-  margin-top: 5%;
-}
+
 #title1 {
   background-color: whitesmoke;
+  background-position: center;
+  text-align: center;
   color:rgba(35, 47, 52);
   border-radius: 25px;
-  padding-top: 8%;
-  padding-bottom:5%;
-  margin-left: 5%;
+}
+#title2 {
+  background-color: whitesmoke;
+  background-position: center;
+  text-align: center;
+  color:rgba(35, 47, 52);
+  border-radius: 25px;
+}
+#league.logo{
+  object-position: left center;
 }
