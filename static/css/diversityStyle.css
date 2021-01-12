@@ -1,0 +1,145 @@
+
+table {
+  padding-top: 2px;
+  margin-top: 4px;
+}
+
+tbody {
+  color: whitesmoke;
+  padding-top: 2px;
+  margin-top: 2px;
+  /* text-align: left; */
+}
+
+select{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+  margin-bottom: 2px;
+  padding-bottom: 1px;
+  display: block;
+  /* background-color: transparent; */
+  border: none;
+  font-size: large;
+  background-color:  rgba(35, 47, 52);
+  color: whitesmoke;
+  outline: none;
+}
+
+.well{
+  margin-bottom: 6px;
+  padding-bottom: 2px;
+}
+h3{
+  color: whitesmoke;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 1px;
+  padding-bottom: 2px;
+}
+
+h3:first-letter {
+  text-transform:capitalize;
+}
+h5{
+  color: whitesmoke;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: auto;
+  padding-bottom: auto;
+}
+#hr {
+  background-color: whitesmoke !important;
+}
+/* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/) */
+html {
+  position: relative;
+  min-height: 100%;
+}
+/* navbar */
+nav{
+  background-color: rgba(35, 47, 52);
+  
+}
+.navbar-nav.mr-auto{
+  visibility: hidden;
+}
+a{
+  color: #FFFFFF;
+  opacity: 0.7;
+  font-size: larger;
+}
+.navbar-brand.active{
+  background-color: white;
+  opacity: 1;
+  color: rgba(35, 47, 52);
+}
+.nav-link.active{
+  opacity: 1;
+}
+a:hover{
+  color: #FFFFFF;
+  opacity: 1;
+}
+.navbar-brand.active:hover{
+  color: black;
+}
+/* Set the border color */ 
+          
+.navbar-toggler { 
+  border-color:rgb(255, 255, 255);
+  opacity: 0.7
+} 
+/* Setting the stroke to green using rgb values (0, 128, 0) */ 
+
+.navbar-toggler-icon { 
+  background-image: url( 
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+}
+
+.container-xxl {
+  /* Padding bottom by footer height */
+  padding-bottom: 80px;
+  text-align: center;
+  background-color:whitesmoke;
+  border-radius: 25px;
+  background-color: rgba(35, 47, 52); 
+  margin-top: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.containerBody {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; /* Set the fixed height of the footer here */
+  height: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  text-align: center;
+  background-color:rgba(35, 47, 52);
+  color:#FFFFFF;
+}
+#footer p {
+  margin: 0;
+  font-size: 16px;
+}
+
+#maptop4 {
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  width: 1000px;
+}
+
+#maplast4 {
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  width: 1000px;
+}

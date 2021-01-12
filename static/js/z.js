@@ -1,332 +1,267 @@
-function makeResponsive() {
-    // remove it and replace it with a resized version of the chart
-    var svgArea = d3.select("body").select("svg");
-    // clear svg is not empty
-    if (!svgArea.empty()) {
-      svgArea.remove();
-    }
-    // SVG wrapper dimensions are determined by the current width and
-    // height of the browser window.
-    var svgWidth = (window.innerWidth)*.7;
-    var svgHeight = (window.innerHeight)*.7;
+// console.log("hello world");
+const API_KEY = "pk.eyJ1IjoiZXpnYWxsbzg3IiwiYSI6ImNraWlqOWNkZzBhMTEyeW9kZTFsYWV2eXMifQ.FIAMf-ix0ER-CwPLhc02xg"
 
-    var margin = {
-        top: 20,
-        right: 10,
-        bottom:90,
-        left:125
-    }
-    var chartWidth = svgWidth - margin.right - margin.left;
-    var chartHeight = svgHeight - margin.top - margin.bottom;
+
+var summary_data = "/diversity/diversity_stats";
+var topAndLast4 = "/diversity/geo_data";
+
+function init(){
+  d3.json(topAndLast4, function(data){ 
+    d3.json(summary_data, statsData =>{ 
     
-    //creates the svg wrapper and the chartgroup
-    var svg = d3.select('#scatter')
-                .append('svg')
-                .attr('width',svgWidth)
-                .attr('height',svgHeight)
-    
-    var chartGroup = svg.append('g')
-                        .attr('transform', `translate(${margin.left},${margin.top})`);
-                        
-    //Initial Params
-    var chosenXAxis = "Ranking";
-    var chosenYAxis = "Goals+";
-    ///creates the functions to create the new chart/////////
-    //create Scales function
-    function xScale(data,key){
-        var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(data, d => d[key])-0.5,
-            d3.max(data, d => d[key])+0.5])
-        .range([0,chartWidth]);
-        return xLinearScale;
-    };
-    function yScale(data,key){
-        var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(data, d => d[key])-1,d3.max(data, d => d[key])+1.1])
-        .range([chartHeight,0]);
-        return yLinearScale;
-    };
-    //create Axis function
-    function xAxes(xScale,xAxis){
-        var bottomAxis = d3.axisBottom(xScale).ticks(12);
-        xAxis.transition()
-            .duration(1000)
-            .call(bottomAxis);
-        return xAxis;
-    }
-    function yAxes(yScale,yAxis){
-        var leftAxis = d3.axisLeft(yScale).ticks(12);
-        yAxis.transition()
-            .duration(1000)
-            .call(leftAxis);
-        return yAxis;
-    }
-    //render circle and text function
-    function renderCircles(circles, xLinearScale, chosenXAxis,yLinearScale,chosenYAxis) {
-        circles.transition()
-        .duration(1000)
-        .attr("cx", d => xLinearScale(d[chosenXAxis]))
-        .attr("cy", d => yLinearScale(d[chosenYAxis]));
-        return circles;
-    }
-    function renderTextCircles(textCirlces, xLinearScale, chosenXAxis,yLinearScale,chosenYAxis) {
-        textCirlces.transition()
-        .duration(1000)
-        .attr("x", d => xLinearScale(d[chosenXAxis]))
-        .attr("y", d => yLinearScale(d[chosenYAxis]-0.2));
-        return textCirlces;
-    }
-    // update tooltip function
-    function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
-        var xlabel;
-        var ylabel;
-        if (chosenXAxis === 'Ranking'){
-            xlabel = "ranking:";
-        }else if(chosenYAxis === "points"){
-            xlabel = "Points:";
-        } 
-        if (chosenYAxis === 'possession'){
-            ylabel = "Possesion:";
-            var percent = "%";
-        }else if(chosenYAxis === "passes") {
-            ylabel = "Passes:";
-            var percent = "%";
-        }else if(chosenYAxis === "goals_againts"){ 
-            ylabel = "Goals -:";
-            var percent = "";
-        }else{
-            ylabel = "Goals +:";
-            var percent = "";
-        }
-        var tip = d3.tip()
-            .attr('class', 'd3-tip')
-            .offset([40, 70])
-            .html(function(d){
-                return (`${d.Teams}<br>${xlabel} ${d[chosenXAxis]}<br>${ylabel} ${d[chosenYAxis]}${percent}`);
-        });
-        circlesGroup.call(tip);
-        circlesGroup.on('mouseover', function(d) {
-            tip.show(d, this);
-        })
-        .on('mouseout', function(d) {
-            tip.hide(d);
-        }); 
-        return circlesGroup;
-    }
-    d3.csv('data/team_player/cleaned_final/epl.csv').then((data,error)=>{
-        if (error) throw error;
-        console.log(data)
-        //Format the data
-        data.forEach((d)=>{
-            d.Ranking = +d.Ranking;
-            d.Year = +d.Year;
-            d["Goals+"] = +d["Goals+"];
-            d["Goals-"] = +d["Goals-"];
-            d["Pass%"] = +d["Pass%"];
-            d.Points = +d.Points;
-            d.AerialsWon = +d.AerialsWon;
-            d["Possession%"] = +d["Possession%"];
-            d.RedCard = +d.RedCard;
-            d["Shots pg"] = +d["Shots pg"];
-            d.Teams = +d.Teams;
-            d.Yellowcard = +d.Yellowcard;
-            d["avg age"] = +d["avg age"];
-            d["avg heights (cm)"] = +d["avg heights (cm)"];
-            d["avg player rating"] = +d["avg player rating"];
-            d["avg player value (EU)"] = +d["avg player value (EU)"];
-            d["avg player wage"] = +d["avg player wage"];
-            d["avg weight (kg)"] = +d["avg weight (kg)"];
-            console.log(d["Goals-"])
-        });
-        
-    ///creates the initial chart/////////
-        // creates scales
-        var xLinearScale = d3.scaleLinear()
-        .domain([d3.min(data, d => d[chosenXAxis])-0.5,
-            d3.max(data, d => d[chosenXAxis])+0.5])
-        .range([0,chartWidth]);
-        var yLinearScale = d3.scaleLinear()
-        .domain([d3.min(data, d => d[chosenYAxis])-1,
-            d3.max(data, d => d[chosenYAxis])+1.1])
-        .range([chartHeight,0]);
-        //creates the axis
-        var bottomAxis = d3.axisBottom(xLinearScale).ticks(12);
-        var leftAxis = d3.axisLeft(yLinearScale).ticks(12);
-        //append axes
-        var xAxis = chartGroup.append('g')
-            .attr("transform",`translate(0,${chartHeight})`)
-            .call(bottomAxis);
-        var yAxis = chartGroup.append("g")
-        .call(leftAxis);  
-        // append circles
-        var circlesGroups = chartGroup.selectAll("g circle")
-            .data(data)
-            .enter()
-            .append("g");
-    
-        var circles = circlesGroups.append("circle")
-            .attr("cx", d => xLinearScale(d[chosenXAxis]))
-            .attr("cy", d => yLinearScale(d[chosenYAxis]))
-            .attr("r", "10")
-            .attr("fill", "#69b3a2")
-            .attr("opacity",0.8)
-            .attr("stroke-width", "1")
-            .attr("stroke", "black");
-        // append text
-        var textCirlces = circlesGroups.append('text')
-            .text(d => d.abbr)
-            .attr("x", d => xLinearScale(d[chosenXAxis]))
-            .attr("y", d => yLinearScale(d[chosenYAxis]-0.2))
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "11px")
-            .attr("font-weight", "bold")
-            .attr('text-anchor',"middle")
-            .attr("fill", "white");
-    
-        //labels
-        var xlabelsGroup = chartGroup.append('g')
-            .attr('transform',`translate(${chartWidth/2},${chartHeight+20})`);
-        var ylabelsGroup = chartGroup.append('g')
-            .attr('transform',`translate(${-35},${chartHeight/2})`)
-        var ranking = xlabelsGroup.append('text')
-            .attr("x",0)
-            .attr("y",20)
-            .attr("value","ranking")
-            .classed('active',true)
-            .text("Ranking"); 
-        var points = xlabelsGroup.append('text')
-            .attr("x",0)
-            .attr("y",40)
-            .attr("value","points")
-            .classed('inactive',true)
-            .text("Points"); 
-        var goals_for = ylabelsGroup.append('text')
-            .attr("transform", "rotate(-90)")
-            .attr("x",0)
-            .attr('y',0)
-            .attr("value","goals_for")
-            .classed("active",true)
-            .text("Goals +")
-        var goals_against = ylabelsGroup.append('text')
-            .attr("transform", "rotate(-90)")
-            .attr("x",0)
-            .attr('y',-25)
-            .attr("value","goals_against")
-            .classed("inactive",true)
-            .text("Goals -")
-        var possession = ylabelsGroup.append('text')
-            .attr("transform", "rotate(-90)")
-            .attr("x",0)
-            .attr('y',-50)
-            .attr("value","possession")
-            .classed("inactive",true)
-            .text("Possession (%)")
-        var passes = ylabelsGroup.append('text')
-            .attr("transform", "rotate(-90)")
-            .attr("x",0)
-            .attr('y',-75)
-            .attr("value","passes")
-            .classed("inactive",true)
-            .text("Passes (%)")
-    //initialise tooltip, call the tip and event usage
-    updateToolTip(chosenXAxis,chosenYAxis,circlesGroups);
-    //label event listener
-    xlabelsGroup.selectAll('text')
-    .on('click', function(){
-        var value = d3.select(this).attr("value");   
-        if (value !== chosenXAxis){
-            chosenXAxis = value;
-            xLinearScale = xScale(data, chosenXAxis);
-            xAxis = xAxes(xLinearScale, xAxis);
-            circles = renderCircles(circles,xLinearScale,chosenXAxis,yLinearScale,chosenYAxis);
-            textCirlces = renderTextCircles(textCirlces,xLinearScale,chosenXAxis,yLinearScale,chosenYAxis)
-            circlesGroups = updateToolTip(chosenXAxis,chosenYAxis,circlesGroups);
-            if (chosenXAxis === "points") {
-                points
-                    .classed("active", true)
-                    .classed("inactive", false);
-                ranking
-                    .classed("active", false)
-                    .classed("inactive", true);
-            }else {
-                ranking
-                    .classed("active", true)
-                    .classed("inactive", false);
-                points
-                    .classed("active", false)
-                    .classed("inactive", true);
-            }
-        }
-    });
-    ylabelsGroup.selectAll('text')
-    .on('click', function(){
-        var value = d3.select(this).attr("value");   
-        if (value !== chosenYAxis){
-            chosenYAxis = value;
-            yLinearScale = yScale(data, chosenYAxis);
-            yAxis = yAxes(yLinearScale, yAxis);
-            circles = renderCircles(circles,xLinearScale,chosenXAxis,yLinearScale,chosenYAxis);
-            textCirlces = renderTextCircles(textCirlces,xLinearScale,chosenXAxis,yLinearScale,chosenYAxis)
-            circlesGroups = updateToolTip(chosenXAxis,chosenYAxis,circlesGroups);
-            if (chosenYAxis === "goals_against") {
-                goals_against
-                    .classed("active", true)
-                    .classed("inactive", false);
-                goals_for
-                    .classed("active", false)
-                    .classed("inactive", true);
-                possession
-                    .classed("active", false)
-                    .classed("inactive", true);
-                passes
-                    .classed("active", false)
-                    .classed("inactive", true);
-            }else if (chosenYAxis === "possession") {
-                goals_against
-                    .classed("active", false)
-                    .classed("inactive", true);
-                goals_for
-                    .classed("active", false)
-                    .classed("inactive", true);
-                possession
-                    .classed("active", true)
-                    .classed("inactive", false);
-                passes
-                    .classed("active", false)
-                    .classed("inactive", true);
-            }else if (chosenYAxis === "passes") {
-                goals_against
-                    .classed("active", false)
-                    .classed("inactive", true);
-                goals_for
-                    .classed("active", false)
-                    .classed("inactive", true);
-                possession
-                    .classed("active", false)
-                    .classed("inactive", true);
-                passes
-                    .classed("active", true)
-                    .classed("inactive", false);
-            }else {
-                goals_against
-                    .classed("active", false)
-                    .classed("inactive", true);
-                goals_for
-                    .classed("active", true)
-                    .classed("inactive", false);
-                possession
-                    .classed("active", false)
-                    .classed("inactive", true);
-                passes
-                    .classed("active", false)
-                    .classed("inactive", true);
-            }
-        }
-    });
-}).catch(function(error) {
-    console.log(error);
-    });
+      // console.log(data);
+      // console.log(statsData);      
+   
+      createFeatures("english");
+      populateStats("english");
+
+      d3.selectAll("#league").on("change", updateLeague);
+
+    })
+  })
 }
-makeResponsive();
 
-d3.select(window).on("resize", makeResponsive);
+init();
+
+function updateLeague(){
+  
+  d3.json(topAndLast4, function(data){
+    
+    d3.json(summary_data, statsData =>{
+      
+      // console.log(statsData);
+      // console.log(data);
+
+      // reseting map containers and updating
+      var container1 = L.DomUtil.get('maptop4');
+        if(container1 != null){
+          container1._leaflet_id = null;
+        }
+      var container2 = L.DomUtil.get('maplast4');
+        if(container2 != null){
+          container2._leaflet_id = null;
+        } 
+        
+      var league = d3.select("#league").node().value;
+      // console.log(league);
+
+      createFeatures(league);
+
+      // reseting stats divs and updating
+      d3.select("tbody").selectAll('tr').remove();
+      d3.select("#top4MapHeader").selectAll('h3').remove();
+      d3.select("#last4MapHeader").selectAll('h3').remove();
+
+      populateStats(league);
+
+    })
+  })
+}
+
+function populateStats(league) {
+  // console.log(league);
+  d3.json(summary_data, data =>{
+   
+    
+    // console.log(summary_data);
+
+    var topLeagueStat = "";
+    var lastLeagueStat = "";
+
+    data.forEach(x => {
+      Object.entries(x).forEach(([key, value])=>{
+        if (value == league){
+          topLeagueStat = x.top4_national_players;
+          lastLeagueStat = x.last4_national_players;
+        }
+      })
+    })
+
+    // console.log(topLeagueStat);
+    // console.log(lastLeagueStat);
+    
+    var tbody = d3.select("tbody");
+    var row1 = tbody.append('tr');
+    var row2 = tbody.append('tr');
+    var row3 = tbody.append('tr');
+
+    row1.append('td').text(`The average ${league} nationality percentage for the top4 teams of the ${league} league is`);
+    row1.append('td').text(topLeagueStat + "%");
+
+    row2.append('td').text(`The average ${league} nationality percentage for the last4 teams of the ${league} league is`);
+    row2.append('td').text(lastLeagueStat + "%");
+    row3.append('td');
+    row3.append('td');
+    
+    d3.select("#top4MapHeader").append("h3").text(`${league} League Top Four Teams Data`);
+    d3.select("#last4MapHeader").append("h3").text(`${league} League Last Four Teams Data`);
+  })
+}
+
+function createFeatures(league) {
+    
+  console.log(league);
+  // var league = league.toString();
+  
+  d3.json(topAndLast4, function(data){
+    // console.log(data);
+
+    // Define a function we want to run once for each feature in the features array
+    // Give each feature a popup describing the place and time of the earthquake
+    function onEachFeature(features, layer) {
+
+        layer.bindPopup("<p>" + "Nationality: " + features.properties.nationality + "</p><p>" + 
+        "Nationality %:  " + features.properties.description  +
+        "</p><p>" + "League: " + features.properties.league + "</p>");
+    }
+
+    var geojson = data.map((d) => d.features);
+    console.log(geojson);
+
+    var topTeamsData = "";
+    var lastTeamsData = "";
+
+    geojson.forEach(x => {
+      Object.entries(x).forEach(([key, value])=>{
+        if (key == "properties"){
+          // console.log(value);
+          var target = value.league;
+          // console.log(target);
+          if (league == target) {
+            var leagueData = geojson.filter((d) => d.properties.league == league);
+            // console.log(leagueData);
+            topTeamsData = leagueData.filter((d) => d.properties.classed == "top4");
+            lastTeamsData = leagueData.filter((d) => d.properties.classed == "last4");
+          }
+        }
+      })
+    })
+
+    // Create a GeoJSON layer containing the features array on the object
+    // Run the onEachFeature function once for each piece of data in the array  
+    var diversityTop = L.geoJSON(topTeamsData, {
+      pointToLayer: function (features, latlng) {
+        var geojsonMarkerOptions = {
+            radius: features.properties.description/2,
+            fillColor: getColour(features.properties.description),
+            color: "black",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 1
+        };       
+        return L.circleMarker(latlng, geojsonMarkerOptions)    
+      },
+      
+      onEachFeature: onEachFeature
+    });
+    
+    var diversityLast = L.geoJSON(lastTeamsData, {
+      pointToLayer: function (features, latlng) {
+        var geojsonMarkerOptions = {
+            radius: features.properties.description/2,
+            fillColor: getColour(features.properties.description),
+            color: "black",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 1
+        };
+        return L.circleMarker(latlng, geojsonMarkerOptions)
+      },
+      
+      onEachFeature: onEachFeature
+    });
+    
+    // Sending our layer to the createMap function
+    createMap(diversityTop, "maptop4");
+    createMap(diversityLast, "maplast4");
+  })
+}
+
+function createMap(diversity, div){
+
+  // Define streetmap and darkmap layers
+  var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+      attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
+      tileSize: 512,
+      maxZoom: 18,
+      zoomOffset: -1,
+      id: "mapbox/streets-v11",
+      accessToken: API_KEY
+  });
+
+  var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+      attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+      maxZoom: 18,
+      id: "dark-v10",
+      accessToken: API_KEY
+    });
+
+    // Define a baseMaps object to hold our base layers
+  var baseMaps = {
+      "Street Map": streetmap,
+      "Dark Map": darkmap
+  };
+
+  // Create overlay object to hold our overlay layer
+  var overlayMaps = {
+      Diversity: diversity
+  };
+  
+  // var map = new L.Map(div);
+
+  // Create our map, giving it the streetmap and earthquakes layers to display on load
+  var myMap = L.map(div, {
+      center: [
+        14.5994, 28.6731
+      ],
+      zoom: 2,
+      layers: [streetmap, diversity] 
+  });
+    
+  //   Create a layer control
+  //   Pass in our baseMaps and overlayMaps
+  //   Add the layer control to the map
+  L.control.layers(baseMaps, overlayMaps, {
+  collapsed: false
+  }).addTo(myMap);
+}
+
+function getColour(percentage) {
+  var color = "";
+
+  if (percentage > 89) {
+    color = "#ef4f4f";
+  }
+  else if (percentage > 79) {
+    color = "#790c5a";
+  }
+  else if (percentage > 69) {
+    color = "#01c5c4";
+  }
+  else if (percentage > 59) {
+    color = "#cc0e74";
+  }
+  else if (percentage > 49) {
+    color = "#c0e218";
+  }
+  else if (percentage > 39) {
+    color = "#6a097d";
+  }
+  else if (percentage > 29) {
+    color = "#5eaaa8";
+  }
+  else if (percentage > 19) {
+    color = "#e6739f";
+  }
+  else if (percentage > 12) {
+    color = "#c060a1";
+  }
+  else if (percentage > 5) {
+    color = "#c060a1";
+  }
+  else {
+    color = "#f1d4d4";
+  }
+
+  return color;
+}

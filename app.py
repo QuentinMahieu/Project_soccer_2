@@ -4,8 +4,9 @@ from flask_cors import CORS, cross_origin
 from flask import Flask, render_template, request, redirect
 
 from pymongo import MongoClient
-from config import mongo
 import scrape_ranking
+
+mongo = "MonashBootcamp"
 
 #################################################
 # Database Setup
@@ -94,6 +95,43 @@ def top4_financialData():
     for doc in table:
         data.append(doc)
 
+    return  (jsonify(data))
+
+@app.route("/diversity")
+def diversity():
+
+    return  render_template("z.html")
+
+@app.route("/diversity/diversity_stats", methods=["GET"])
+def summary_diversity_stats():
+    #create connection
+    import time
+    start = time.time()
+    client = MongoClient(f"mongodb+srv://Ezequiel:{mongo}@cluster0.ddqv6.mongodb.net/{dbname}?retryWrites=true&w=majority")
+    soccer_db = client.get_database('Soccer_db')
+    collection = soccer_db.summary_diversity_stats.find({},{'_id': False})
+    data = []
+    for doc in collection:
+        data.append(doc)
+    client.close()
+    end = time.time()
+    print(end - start)
+    return  (jsonify(data))
+
+@app.route("/diversity/geo_data", methods=["GET"])
+def geo_data():
+    #create connection
+    import time
+    start = time.time()
+    client = MongoClient(f"mongodb+srv://Ezequiel:{mongo}@cluster0.ddqv6.mongodb.net/{dbname}?retryWrites=true&w=majority")
+    soccer_db = client.get_database('Soccer_db')
+    collection = soccer_db.geo_data.find({},{'_id': False})
+    data = []
+    for doc in collection:
+        data.append(doc)
+    client.close()
+    end = time.time()
+    print(end - start)
     return  (jsonify(data))
 
 
