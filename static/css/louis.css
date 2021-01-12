@@ -2,7 +2,7 @@
     padding: 20px;
     border: 1px solid #e3e3e3;
   }
-  ​
+
   /* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/) */
   html {
     position: relative;
@@ -28,18 +28,18 @@
   .nav-link.active {
     opacity: 1;
   }
-  ​
+
   .navbar-brand.active:hover {
     color: black;
   }
   /* Set the border color */
-  ​
+
   .navbar-toggler {
     border-color: rgb(255, 255, 255);
     opacity: 0.7;
   }
   /* Setting the stroke to green using rgb values (0, 128, 0) */
-  ​
+
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
@@ -65,7 +65,7 @@
   .article {
     margin-top: 1%;
   }
-  ​
+
   .backer {
     background-color: rgb(33, 40, 42);
   }
@@ -75,7 +75,7 @@
   .transparent {
     background-color: transparent;
   }
-  ​
+
   /* select {
     background-color: transparent;
     border: none;
@@ -84,7 +84,7 @@
     background-color: transparent;
     color: whitesmoke;
   } */
-  ​
+
   #footer {
     position: absolute;
     bottom: 0;
@@ -126,4 +126,8 @@
     padding-bottom: 5%;
     margin-left: 5%;
   }
-  
+  @media screen and (max-width: 400px) {
+    .card{
+      size: 70%;
+    }
+  }

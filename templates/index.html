@@ -38,7 +38,7 @@
     <div class="container-xxl" id="main">
       <div class="row justify-content-center" >
         <div class="col-xs-12  col-md-12">
-          <form method="POST" action="{{ url_for('scrape') }}">
+          <form method="POST" action="{{ url_for('home') }}">
               <select class="league" name="league">
                 <option id="eng" value="England">England</option>
                 <option id="es" value = "Spain">Spain</option>
@@ -49,23 +49,11 @@
         </div>
       </div>
       <div class="row justify-content-center my-2" >
-        <div class='col-xs-12 col-md-5'>
+        <div class='col-xs-12 col-md-12'>
           <h5 style="color:whitesmoke;">Our goal:</h5>
           <p id="home">Build a dynamic and interactive app that serves up analysis on key 
           features that go into building a winning team and try to make predictions on the final ranking
           in the three leagues we focussed on [EPL, LaLiga, SerieA].</p>
-        </div>
-        <div class='col-xs-12 col-md-5'>
-          <p id="pages">The home page shows the up to date ranking per chosen League and the predictions made 
-            based on 7 different features.<br>
-            Predictions are not the most accurate, but this model can still be improved in the future.
-            The Correlation page shows the up to correlation between ranking/points and the most correlated 
-            features that helped to build the prediction model. This vizualisations are interactives and 
-            a small explanation is provided.<br>
-            The Diversity page shows the importance of this feature in building a winning team on 2 maps.<br>
-            The Transfer page shows the importance of the Moving Average feature in building a winning.
-            The page shows the trends over the last 20 years in tranfers spends in the different leagues.
-          </p>
         </div> 
       </div>
       <div class="row justify-content-center mt-4">

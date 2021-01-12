@@ -80,6 +80,7 @@ select{
 }
 h5{
   text-align: left;
+  margin-left:10.5%;
 }
 button{
   padding-top:0%;
@@ -87,7 +88,7 @@ button{
 }
 #home{
   color: whitesmoke;
-  text-align: left;
+  text-align: center;
   font-size: smaller;
 }
 #pages{

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask import Response,json
 from flask_cors import CORS, cross_origin
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 
 from pymongo import MongoClient
 import scrape_ranking
@@ -14,6 +14,7 @@ mongo = "MonashBootcamp"
 dbname = "Soccer_db"
 client = MongoClient(f"mongodb+srv://Quentin:{mongo}@cluster0.ddqv6.mongodb.net/{dbname}?retryWrites=true&w=majority")
 soccer_db = client.get_database('Soccer_db')
+select = "England"
 #################################################
 # Flask Setup
 #################################################
@@ -25,12 +26,12 @@ app = Flask(__name__)
 
 @app.route("/",methods=['GET',"POST"])
 def home():
-    select = "England"
+    global select
     if request.method == 'POST':
-        select = request.form.get('league')
-    #get the title
+        select = request.form.get("league")
+    # get the title
     if select == "England":
-        league_title = "English Premiere League"
+        league_title = "English Premier League"
         league_logo = "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/23.png&h=60&w=60&scale=crop&cquality=40&location=origin"
     if select == "Spain":
         league_title = "La Liga BVBA"
@@ -43,15 +44,12 @@ def home():
     pred_data = []
     for doc in pred_col:
         pred_data.append(doc)
+
     return render_template("index.html", pred = pred_data, title=league_title,logo = league_logo)
 
 @app.route("/scrape",methods=['GET', 'POST'])
 def scrape():
-    select = "England"
-    if request.method == 'POST':
-        select = request.form.get('league')
-        return redirect(url_for('home',select=select))
-        
+    global select
     # Collect the data
     ranking_data = scrape_ranking.scrape(select)
     return (jsonify(ranking_data))
