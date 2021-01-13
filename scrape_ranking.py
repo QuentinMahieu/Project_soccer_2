@@ -2,12 +2,13 @@ from selenium import webdriver
 import time
 from collections import defaultdict
 import pandas as pd
-from selenium.webdriver.chrome.options import Options
+import os
 
 def scrape(league):
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver',options=options)
+    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    driver = webdriver.Chrome(executable_path = os.environ.get("CHROMEDRIVER_PATH"),options=options)
     if league == "England":
         url = "https://www.espn.com.au/football/table/_/league/eng.1"
     if league == "Spain":
