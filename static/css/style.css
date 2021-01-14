@@ -29,10 +29,7 @@ a{
 .nav-link.active{
   opacity: 1;
 }
-a:hover{
-  color: #FFFFFF;
-  opacity: 1;
-}
+
 .navbar-brand.active:hover{
   color: black;
 }
