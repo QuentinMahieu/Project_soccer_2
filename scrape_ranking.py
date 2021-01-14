@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 from collections import defaultdict
 import pandas as pd
-from selenium.webdriver.chrome.options import Options
+import os
 
 def scrape(league):
     options = webdriver.ChromeOptions()
