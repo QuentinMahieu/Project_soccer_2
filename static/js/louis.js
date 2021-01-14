@@ -37,12 +37,7 @@ function buildHero(country) {
     };
     var data = [trace];
     var layout = {
-      margin: {
-        r: 50,
-        b: 50,
-        pad: 4,
-      },
-
+      aurosize:true,
       title: {
         text: "Transfer spend over time",
         font: {
@@ -57,6 +52,7 @@ function buildHero(country) {
           family: "Helvetica Neue",
           size: 14,
           color: "white",
+          automargin: true,
         },
       },
       yaxis: {
@@ -65,6 +61,7 @@ function buildHero(country) {
           family: "Helvetica Neue",
           size: 20,
           color: "white",
+          automargin: true,
         },
         tickfont: {
           family: "Helvetica Neue",
@@ -152,6 +149,7 @@ function buildChart(country, year, measure) {
           family: "Helvetica Neue",
           size: 14,
           color: "white",
+          automargin: true,
         },
       },
       xaxis: {
@@ -159,18 +157,12 @@ function buildChart(country, year, measure) {
           family: "Helvetica Neue",
           size: 14,
           color: "white",
+          automargin: true,
         },
       },
       plot_bgcolor: "transparent",
       paper_bgcolor: "transparent",
-      margin: {
-        t: 50,
-        l: 50,
-        r: 50,
-        b: 50,
-        pad: 4,
-      },
-      height: 600,
+      autosize:true,
     };
     d3.select("#comparison").append("div").attr("id", "comparison_chart");
 

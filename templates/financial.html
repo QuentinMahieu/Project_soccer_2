@@ -24,23 +24,16 @@
   </head>
 ​
   <body>
-    <nav class="navbar navbar-expand-md floating p-0">
-      <a class="navbar-brand p-3 ml-2" href="/">Home</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-​
+    <!--navigation bar-->
+  <nav class="navbar navbar-expand-md floating p-0">
+    <a class="navbar-brand p-3 ml-2" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" href="/correlation">Correlation</a>
           </li>
           <li class="nav-item">
@@ -51,12 +44,13 @@
           </li>
         </ul>
       </div>
-    </nav>
-    <div class="container-fluid">
-      <div class="row backer px-3">
-        <div class="col-md-4 col-sm-12 mt-5 align-middle">
-          <div class="container py-3 text-left align-middle" style="color: white">
-            <h3 class="text-center py-2">
+  </nav>
+  <div class="container-fluid" id="page">
+    <div class="container-xxl" id="main">
+      <div class="row align-items-center px-3">
+        <div class="col-md-4 col-sm-12 my-2 align-middle" id="analysis">
+          <div class="container-fluid py-3 text-left align-middle" style="color: whitesmoke">
+            <h3 class="text-center py-2" >
               <strong><u>Financial Analysis </u></strong>
               <i class="bi bi-search"></i>
             </h3>
@@ -79,24 +73,24 @@
             <div id="transfer_analysis"></div>
           </div>
         </div>
-        <div class="col-md-8 col-sm-10">
-          <div id="plot"></div>
+          <div class="col-md-8 col-sm-10">
+            <div id="plot" class="h-100">
+            </div>
         </div>
       </div>
-      <div class="row middle py-4 justify-content-left align-items-center">
-        <div class="col-md-3">
-          <div class="card mx-3" style="width: 22rem">
+      <div class="row align-items-center m-2 " id="cards">
+        <div class="card-group h-70">
+          <div class="card m-2">
             <div
               class="card-header"
-              style="background-color: rgb(33, 40, 42)"
-              ;
+              style="background-color: rgba(35, 47, 52);"           
             >
-              <h5 class="card-title" style="color: white">
+              <h5 class="card-title" style="color: whitesmoke">
                 <strong>Your Web Guide:</strong>
               </h5>
               <i
                 class="bi bi-book py-0"
-                style="font-size: 3rem; color: white"
+                style="font-size: 3rem; color: whitesmoke"
               ></i>
             </div>
             <div class="card-body">
@@ -106,9 +100,7 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <div class="card mx-3" style="width: 14rem">
+          <div class="card m-2">
             <img
               class="card-img-top"
               src="https://turbologo.com/articles/wp-content/uploads/2020/01/Premier-League-symbol-958x575.png"
@@ -124,9 +116,7 @@
               </select>
             </div>
           </div>
-        </div>
-        <div class="col-md-2">
-          <div class="card mx-3" style="width: 14rem">
+          <div class="card m-2">
             <img
               class="card-img-top"
               src="https://images.pexels.com/photos/21294/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
@@ -143,10 +133,7 @@
               </select>
             </div>
           </div>
-        </div>
-​
-        <div class="col-md-2">
-          <div class="card mx-3" style="width: 14rem">
+          <div class="card m-2">
             <img
               class="card-img-top"
               src="https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
@@ -163,18 +150,17 @@
           </div>
         </div>
       </div>
-      <div class="row backer py-5">
-        <div class="col-md-5 mr-5">
+      <div class="row justify-content-around">
+        <div class="col-md-4 m-1">
           <div class="card">
             <div
               class="card-header"
-              style="background-color: rgb(74, 77, 78)"
-              ;
+              style="background-color: rgba(35, 47, 52);"
             >
-              <h4 class="card-title" style="color: white">
+              <h4 class="card-title" style="color: whitesmoke">
                 <strong>The Top 4 vs. League:</strong>
               </h4>
-              <h6 style="color: white">
+              <h6 style="color: whitesmoke">
                 In this table, we see how the top 4 teams outlayed financially
                 in a given year. When comparing this with the graph on the
                 right, we start to get a picture of the need to spend $$$.
@@ -191,43 +177,29 @@
               </h5>
             </div>
           </div>
-        <div class = "table-responsive justify-content-center">
-          <table id="summary-table" class="table">
-                <thead>
-                  <tr class = "table-primary">
-                    <th class="table-head">Position</th>
-                    <th class="table-head">Team</th>
-                    <th class="table-head">Financial Spend (€)</th>
-                    <th class="table-head">vs. League (€)</th>
-                  </tr>
-                </thead>      
-              </table>
-            </div>
+          <div class = "table-responsive table-sm">
+            <table id="summary-table" class="table">
+              <thead>
+                <tr class = "table-primary">
+                  <th class="table-head">Position</th>
+                  <th class="table-head">Team</th>
+                  <th class="table-head">Financial Spend (€)</th>
+                  <th class="table-head">vs. League (€)</th>
+                </tr>
+              </thead>      
+            </table>
+          </div>
         </div>
-                <div class="col-md-6">
-          <!-- <div class="card">
-            <div
-              class="card-header"
-              style="background-color: rgb(74, 77, 78)"
-              ;
-            >
-              <h4 class="card-title" style="color: white">
-                <strong>Comparison Bar Chart:</strong>
-              </h4>
-              <h6 style="color: white">
-                In this table, we compare the spend for your chosen measure between the Top 4 Average, the League and the Bottom 4.
-              </h6>
-            </div>
-            <div class="card-body transparent"> -->
-                <div id="comparison"></div>
-<!--             
-            </div>
-          </div> -->
-        </div>
-        
+        <div class="col-md-7 sm-10 align-items-center">
+          <div id="comparison">
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div id="footer">
+    <p>The Winning Team&copy;2020 by Quentin Mahieu, Louis Razuki, Ezequiel Gallo</p>
+  </div>
     <!-- <script type="text/javascript" src="/static/js/louis.js"></script> -->
     <script src="{{url_for('static', filename='js/louis.js')}}"></script>
   </body>
