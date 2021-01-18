@@ -52,7 +52,6 @@ function buildHero(country) {
           family: "Helvetica Neue",
           size: 14,
           color: "white",
-          automargin: true,
         },
       },
       yaxis: {
@@ -157,7 +156,6 @@ function buildChart(country, year, measure) {
           family: "Helvetica Neue",
           size: 14,
           color: "white",
-          automargin: true,
         },
       },
       plot_bgcolor: "transparent",
@@ -200,7 +198,6 @@ function buildTable(country, year, measure) {
     transfer_spend.forEach((d) => {
       transfer_spending.push(Math.round(d * 1000000));
     });
-    console.log(transfer_spending);
 
     if (measure == "Wages") {
       financials = wages;
