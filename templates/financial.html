@@ -22,181 +22,179 @@
       href="{{url_for('static',filename = 'css/louis.css')}}"
     />
   </head>
-​
+  
   <body>
     <!--navigation bar-->
-  <nav class="navbar navbar-expand-md floating p-0">
-    <a class="navbar-brand p-3 ml-2" href="/">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-md floating p-0">
+      <a class="navbar-brand p-3 ml-2" href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item ">
-            <a class="nav-link" href="/correlation">Correlation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/diversity">Diversity</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="/financial">Transfers</a>
-          </li>
-        </ul>
-      </div>
-  </nav>
-  <div class="container-fluid" id="page">
-    <div class="container-xxl" id="main">
-      <div class="row align-items-center px-3">
-        <div class="col-md-4 col-sm-12 my-2 align-middle" id="analysis">
-          <div class="container-fluid py-3 text-left align-middle" style="color: whitesmoke">
-            <h3 class="text-center py-2" >
-              <strong><u>Financial Analysis </u></strong>
-              <i class="bi bi-search"></i>
-            </h3>
-            <p>
-              <em
-                >On this page, we dive deeper into the impact financials have in
-                the world of professional football. We'll start with an
-                historical overview of each league, and then, provide some more
-                detailed analysis from recent years.</em
-              >
-            </p>
-            <hr class="pb-1" style="border-color: white" />
-            <p>
-              This graph on the right shows the change in annual transfer spend
-              over the last 30 years. With individual player sums now reaching
-              over 100m Euros, we know anecdotally that investing in new talent
-              has become increasingly important. Here we can see just how
-              important.
-            </p>
-            <div id="transfer_analysis"></div>
-          </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="/correlation">Correlation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/diversity">Diversity</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/financial">Transfers</a>
+            </li>
+          </ul>
         </div>
+    </nav>
+    <div class="container-fluid" id="page">
+      <div class="container-xxl" id="main">
+        <div class="row align-items-center px-3">
+          <div class="col-md-4 col-sm-12 my-2 align-middle" id="analysis">
+            <div class="container-fluid py-3 text-left align-middle" style="color: whitesmoke">
+              <h3 class="text-center py-2" >
+                <strong><u>Financial Analysis </u></strong>
+                <i class="bi bi-search"></i>
+              </h3>
+              <p>
+                <em
+                  >On this page, we dive deeper into the impact financials have in
+                  the world of professional football. We'll start with an
+                  historical overview of each league, and then, provide some more
+                  detailed analysis from recent years.</em>
+              </p>
+              <hr class="pb-1" style="border-color: white" />
+              <p>
+                This graph on the right shows the change in annual transfer spend
+                over the last 30 years. With individual player sums now reaching
+                over 100m Euros, we know anecdotally that investing in new talent
+                has become increasingly important. Here we can see just how
+                important.
+              </p>
+              <div id="transfer_analysis"></div>
+            </div>
+          </div>
           <div class="col-md-8 col-sm-10">
             <div id="plot" class="h-100">
             </div>
+          </div>
+        </div>
+        <div class="row align-items-center m-2 " id="cards">
+          <div class="card-group h-70">
+            <div class="card m-2">
+              <div
+                class="card-header"
+                style="background-color: rgba(35, 47, 52);"           
+              >
+                <h5 class="card-title" style="color: whitesmoke">
+                  <strong>Your Web Guide:</strong>
+                </h5>
+                <i
+                  class="bi bi-book py-0"
+                  style="font-size: 3rem; color: whitesmoke"
+                ></i>
+              </div>
+              <div class="card-body">
+                <p class="card-text text-left">
+                  When you change the dropdowns, the visualisations dynamically
+                  update. Enjoy!
+                </p>
+              </div>
+            </div>
+            <div class="card m-2">
+              <img
+                class="card-img-top"
+                src="https://turbologo.com/articles/wp-content/uploads/2020/01/Premier-League-symbol-958x575.png"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Select League:</h6>
+                <select id="league">
+                  <option value="England">England</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Italy">Italy</option>
+                </select>
+              </div>
+            </div>
+            <div class="card m-2">
+              <img
+                class="card-img-top"
+                src="https://images.pexels.com/photos/21294/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Choose year</h6>
+                <select id="year">
+                  <option value="2015">2015</option>
+                  <option value="2016">2016</option>
+                  <option value="2017">2017</option>
+                  <option value="2018">2018</option>
+                  <option value="2019">2019</option>
+                </select>
+              </div>
+            </div>
+            <div class="card m-2">
+              <img
+                class="card-img-top"
+                src="https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h6 class="card-title">Choose measure</h6>
+                <select id="measure">
+                  <option value="Wages">Player Wages</option>
+                  <option value="Transfers">Transfer Spend</option>
+                  <option value="Value">Player Value</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-around">
+          <div class="col-md-4 m-1">
+            <div class="card">
+              <div
+                class="card-header"
+                style="background-color: rgba(35, 47, 52);"
+              >
+                <h4 class="card-title" style="color: whitesmoke">
+                  <strong>The Top 4 vs. League:</strong>
+                </h4>
+                <h6 style="color: whitesmoke">
+                  In this table, we see how the top 4 teams outlayed financially
+                  in a given year. When comparing this with the graph on the
+                  right, we start to get a picture of the need to spend $$$.
+                </h6>
+              </div>
+              <div
+                class="card-header"
+                style="background-color: rgb(240, 238, 238);"
+                ;
+              >
+                <h5>
+                  <strong>League average:</strong>
+                  <div id="average"></div>
+                </h5>
+              </div>
+            </div>
+            <div class = "table-responsive table-sm">
+              <table id="summary-table" class="table">
+                <thead>
+                  <tr class = "table-primary">
+                    <th class="table-head">Position</th>
+                    <th class="table-head">Team</th>
+                    <th class="table-head">Financial Spend (€)</th>
+                    <th class="table-head">vs. League (€)</th>
+                  </tr>
+                </thead>      
+              </table>
+            </div>
+          </div>
+          <div class="col-md-7 sm-10 align-items-center">
+            <div id="comparison">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row align-items-center m-2 " id="cards">
-        <div class="card-group h-70">
-          <div class="card m-2">
-            <div
-              class="card-header"
-              style="background-color: rgba(35, 47, 52);"           
-            >
-              <h5 class="card-title" style="color: whitesmoke">
-                <strong>Your Web Guide:</strong>
-              </h5>
-              <i
-                class="bi bi-book py-0"
-                style="font-size: 3rem; color: whitesmoke"
-              ></i>
-            </div>
-            <div class="card-body">
-              <p class="card-text text-left">
-                When you change the dropdowns, the visualisations dynamically
-                update. Enjoy!
-              </p>
-            </div>
-          </div>
-          <div class="card m-2">
-            <img
-              class="card-img-top"
-              src="https://turbologo.com/articles/wp-content/uploads/2020/01/Premier-League-symbol-958x575.png"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h6 class="card-title">Select League:</h6>
-​
-              <select id="league">
-                <option value="England">England</option>
-                <option value="Spain">Spain</option>
-                <option value="Italy">Italy</option>
-              </select>
-            </div>
-          </div>
-          <div class="card m-2">
-            <img
-              class="card-img-top"
-              src="https://images.pexels.com/photos/21294/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h6 class="card-title">Choose year</h6>
-              <select id="year">
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-              </select>
-            </div>
-          </div>
-          <div class="card m-2">
-            <img
-              class="card-img-top"
-              src="https://images.pexels.com/photos/210574/pexels-photo-210574.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h6 class="card-title">Choose measure</h6>
-              <select id="measure">
-                <option value="Wages">Player Wages</option>
-                <option value="Transfers">Transfer Spend</option>
-                <option value="Value">Player Value</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-around">
-        <div class="col-md-4 m-1">
-          <div class="card">
-            <div
-              class="card-header"
-              style="background-color: rgba(35, 47, 52);"
-            >
-              <h4 class="card-title" style="color: whitesmoke">
-                <strong>The Top 4 vs. League:</strong>
-              </h4>
-              <h6 style="color: whitesmoke">
-                In this table, we see how the top 4 teams outlayed financially
-                in a given year. When comparing this with the graph on the
-                right, we start to get a picture of the need to spend $$$.
-              </h6>
-            </div>
-            <div
-              class="card-header"
-              style="background-color: rgb(240, 238, 238)"
-              ;
-            >
-              <h5>
-                <strong>League average:</strong>
-                <div id="average"></div>
-              </h5>
-            </div>
-          </div>
-          <div class = "table-responsive table-sm">
-            <table id="summary-table" class="table">
-              <thead>
-                <tr class = "table-primary">
-                  <th class="table-head">Position</th>
-                  <th class="table-head">Team</th>
-                  <th class="table-head">Financial Spend (€)</th>
-                  <th class="table-head">vs. League (€)</th>
-                </tr>
-              </thead>      
-            </table>
-          </div>
-        </div>
-        <div class="col-md-7 sm-10 align-items-center">
-          <div id="comparison">
-          </div>
-        </div>
-      </div>
-  </div>
-</div>
+    </div>
   <div id="footer">
     <p>The Winning Team&copy;2020 by Quentin Mahieu, Louis Razuki, Ezequiel Gallo</p>
   </div>
