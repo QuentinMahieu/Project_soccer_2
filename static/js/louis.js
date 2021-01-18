@@ -34,7 +34,7 @@ function buildHero(country) {
       y: transfer,
       type: "scatter",
       line: { shape: "spline" },
-      fill: "tonexty",
+      fill: "tonexty"
     };
     var data = [trace];
     var layout = {
