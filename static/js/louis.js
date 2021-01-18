@@ -18,12 +18,13 @@ function buildHero(country) {
     var country = d3.select("#league").node().value;
     // Use to filter the dataset
 
-    data = data.filter((d) => d.League == country);
+    data = data.filter((d) => d.League == country)
+                .sort((a,b)=> a.year-b.year);
     //Format the data and prepare for it to be plotted
     transfer = [];
     year = [];
     data.forEach((d) => {
-      d.Transfer_spend = +d.Transfer_Spend;
+      d.Transfer_Spend = +d.Transfer_Spend;
       year.push(d.year);
       transfer.push(d.Transfer_Spend * 1000000);
     });
@@ -37,21 +38,21 @@ function buildHero(country) {
     };
     var data = [trace];
     var layout = {
-      aurosize:true,
+      autosize:true,
       title: {
         text: "Transfer spend over time",
         font: {
           family: "Helvetica Neue",
           size: 26,
           color: "whitesmoke",
-          weight: "bold",
+          weight: "bold"
         },
       },
       xaxis: {
         tickfont: {
           family: "Helvetica Neue",
           size: 14,
-          color: "white",
+          color: "whitesmoke"
         },
       },
       yaxis: {
@@ -59,18 +60,18 @@ function buildHero(country) {
         titlefont: {
           family: "Helvetica Neue",
           size: 20,
-          color: "white",
-          automargin: true,
+          color: "whitesmoke",
+          automargin:true
         },
         tickfont: {
           family: "Helvetica Neue",
           size: 14,
-          color: "white",
+          color: "whitesmoke"
         },
       },
 
       plot_bgcolor: "transparent",
-      paper_bgcolor: "transparent",
+      paper_bgcolor: "transparent"
     };
     // Build plot for Hero graph
     Plotly.newPlot("plot", data, layout);
@@ -128,7 +129,6 @@ function buildChart(country, year, measure) {
 
     values = [top4, league, bottom4];
     labels = ["Top 4", "League Average", "Bottom 4"];
-    console.log(values);
     var trace = {
       x: labels,
       y: values,
