@@ -36,8 +36,7 @@ def scrape(league):
         if league == "Italy":
             table["League"].append('Italy')
             src = imgs[i].get_attribute("src")
-            new_src = src.replace("h=100&w=100","h=40&w=40")
-            table["img"].append(new_src)
+            table["img"].append(src)
     count = 0
     for i in range(len(rows)):
         if i <20:
