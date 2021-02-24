@@ -54,6 +54,8 @@ d3.json("/scrape").then((data)=>{
 
     var c = d3.selectAll("#club-logo")
             .append("img")
+            .style('height','40px')
+            .style('width','40px')
             .attr("src", function (d) { 
                 if (d.column === "img"){
                     return d.value;
