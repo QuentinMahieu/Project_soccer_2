@@ -13,6 +13,7 @@ numpy==1.19.5
 odict==1.7.0
 plumber==1.6
 pymongo==3.11.2
+requests==2.25.1
 selenium==3.141.0
 six==1.15.0
 Werkzeug==1.0.1

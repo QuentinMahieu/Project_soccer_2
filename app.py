@@ -28,7 +28,7 @@ app = Flask(__name__)
 def home():
     global select
     if request.method == 'POST':
-        select = request.form.get("league")
+        select = request.form.get("CO2")
     # get the title
     if select == "England":
         league_title = "English Premier League"
